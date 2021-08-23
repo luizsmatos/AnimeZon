@@ -1,4 +1,83 @@
 * {
   padding: 0;
   margin: 0;
+  font-family: sans-serif;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+button {
+  border: unset;
+  cursor: pointer;
+}
+
+.header {
+  display: flex;
+  background-color: #030913;
+  height: 10%;
+  padding: 15px;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.input-search {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 260px;
+  height: 30px;
+}
+
+.button-search {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 8px;
+  background-color: white;
+}
+
+#btn-hamburguer {
+  display: flex;
+  padding: .5rem 1rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+#hamburguer-menu {
+  width: 20px;
+  color: #D7D7D7;
+}
+
+#hamburguer-menu::after, #hamburguer-menu::before{
+  content: '';
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: currentColor;
+  margin-top: 5px;
+  transition: 0.5s;
+  position: relative;
+}
+
+.header-container.active #hamburguer-menu::before {
+  transform: rotate(135deg);
+}
+
+.header-container.active #hamburguer-menu::after {
+  transform: rotate(-135deg);
+  margin-top: -2px;
 }

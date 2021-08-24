@@ -15,7 +15,7 @@ buttonLeft.onclick = function () {
   animeContent.scrollLeft -= 1000;
 };
 
-function createProductItemElement(product) {
+function createStreamingElement(product) {
   const image = document.createElement('img');
   image.classList = 'test'
   image.setAttribute('src', product.image)
@@ -29,13 +29,13 @@ function getInfosApis(object, type) {
     }));
     if(type === 'anime') {
       return infos.forEach((product) => {
-        animeContent.appendChild(createProductItemElement(product));
+        animeContent.appendChild(createStreamingElement(product));
       });
     }
 
     if(type === 'manga') {
       return infos.forEach((product) => {
-        mangaContent.appendChild(createProductItemElement(product));
+        mangaContent.appendChild(createStreamingElement(product));
       });
     }
 }

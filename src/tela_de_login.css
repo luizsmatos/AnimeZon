@@ -1,5 +1,4 @@
 :root {
-
   --primary-purple: rgb(115, 66, 228);
 
   --primary-black: rgb(18, 18, 20);
@@ -16,7 +15,7 @@
 body {
   color: var(--primary-white-font);
   font-size: 16px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
 /* CONTEÚDO PRINCIPAL */

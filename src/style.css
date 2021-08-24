@@ -1,11 +1,21 @@
+:root {
+  --primary-purple: rgb(115, 66, 228);
+
+  --primary-black: rgb(18, 18, 20);
+
+  --primary-white-font: rgb(255, 255, 230);
+}
+
+
 * {
   padding: 0;
   margin: 0;
   font-family: sans-serif;
+  box-sizing: border-box;
 }
 
 a {
-  color: white;
+  color: var(--primary-white-font);
   text-decoration: none;
 }
 
@@ -16,12 +26,12 @@ button {
 
 .header {
   display: flex;
-  background-color: #030913;
+  background-color: var(--primary-black);
   height: 10%;
   padding: 15px;
   align-items: center;
   justify-content: space-between;
-  color: white;
+  color: var(--primary-white-font);
 }
 
 .header-container {
@@ -36,10 +46,9 @@ button {
 }
 
 #search-select {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  background: linear-gradient(35deg, rgb(0, 150, 209), aqua);
-  height: 30px;
+  border-radius: 10px 0 0 10px;
+  background: linear-gradient(35deg, rgb(115, 66, 228), rgb(155, 117, 243));
+  height: 32px;
   border: none;
   font-weight: 900;
 }
@@ -47,7 +56,9 @@ button {
 .input-search {
   border: none;
   width: 260px;
-  height: 30px;
+  height: 32px;
+  outline: none;
+  padding: 0 10px;
 }
 
 .button-search {

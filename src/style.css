@@ -53,7 +53,7 @@ button {
 .button-search {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  padding: 7.5px;
+  padding: 3px;
   background-color: white;
 }
 
@@ -88,4 +88,12 @@ button {
 .header-container.active #hamburguer-menu::after {
   transform: rotate(-135deg);
   margin-top: -2px;
+}
+
+.main-carousel {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 10px;
 }

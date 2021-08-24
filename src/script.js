@@ -1,4 +1,8 @@
 const body = document.querySelector('body')
+const mainCarousel = document.querySelector('.main-carousel')
+const mainContent = document.querySelector('.main-content');
+const animeContent = document.querySelector('.anime-content');
+const mangaContent = document.querySelector('.manga-content');
 
 function createProductItemElement(product) {
   const image = document.createElement('img');
@@ -11,7 +15,7 @@ function getInfosApi(object) {
      image: element.image_url,
     }));
   return infos.forEach((product) => {
-    body.appendChild(createProductItemElement(product));
+    animeContent.appendChild(createProductItemElement(product));
   });
 }
 
@@ -49,7 +53,7 @@ async function fetchApiManga() {
   try {
     const response = await fetch(url);
     const data = await response.json()
-    // getInfosApi(data);
+    getInfosApi(data);
   } catch (error) {
     messageError(error);
   }
@@ -58,7 +62,7 @@ async function fetchApiManga() {
 
 window.onload = () => {
   fetchApiAnime()
-  fetchApiManga()
+  // fetchApiManga()
 };
 
 // ENDPOINTS:

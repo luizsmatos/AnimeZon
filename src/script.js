@@ -1,19 +1,45 @@
 const body = document.querySelector('body')
+const mainCarousel = document.querySelector('.main-carousel')
+const mainContent = document.querySelector('.main-content');
+const animeContent = document.querySelector('#carouselAnime');
+const mangaContent = document.querySelector('.manga-content');
+
+
+const buttonRight = document.getElementById('direito');
+const buttonLeft = document.getElementById('esquerdo');
+
+buttonRight.onclick = function () {
+  animeContent.scrollLeft += 500;
+};
+buttonLeft.onclick = function () {
+  animeContent.scrollLeft -= 1000;
+};
 
 function createProductItemElement(product) {
   const image = document.createElement('img');
+  image.classList = 'test'
   image.setAttribute('src', product.image)
   return image;
 }
 
-function getInfosApi(object) {
+function getInfosApis(object, type) {
+
   const infos = object.top.map((element) => ({
      image: element.image_url,
     }));
-  return infos.forEach((product) => {
-    body.appendChild(createProductItemElement(product));
-  });
+    if(type === 'anime') {
+      return infos.forEach((product) => {
+        animeContent.appendChild(createProductItemElement(product));
+      });
+    }
+
+    if(type === 'manga') {
+      return infos.forEach((product) => {
+        mangaContent.appendChild(createProductItemElement(product));
+      });
+    }
 }
+
 
 const messageError = (error) => console.log(error.message);
 
@@ -37,7 +63,7 @@ async function fetchApiAnime() {
   try {
     const response = await fetch(url);
     const data = await response.json()
-    getInfosApi(data);
+    getInfosApis(data, 'anime');
   } catch (error) {
     messageError(error);
   }
@@ -49,7 +75,7 @@ async function fetchApiManga() {
   try {
     const response = await fetch(url);
     const data = await response.json()
-    // getInfosApi(data);
+    getInfosApis(data, 'manga');
   } catch (error) {
     messageError(error);
   }
@@ -58,7 +84,7 @@ async function fetchApiManga() {
 
 window.onload = () => {
   fetchApiAnime()
-  fetchApiManga()
+  // fetchApiManga()
 };
 
 // ENDPOINTS:

@@ -1,9 +1,6 @@
 const buttonMenu = document.querySelector('#btn-hamburguer');
 
-const toggleMenu = (event) => {
-  if (event.type === 'touchstart') {
-    event.preventDefault()
-  }
+const toggleMenu = () => {
   const headerContainer = document.querySelector('.header-container');
   headerContainer.classList.toggle('active');
 } 

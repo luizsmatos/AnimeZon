@@ -91,22 +91,41 @@ button {
 }
 
 .main-carousel {
-  display: flex;
-  flex-flow: row nowrap;
-  width: 100%;
-  justify-content: center;
   margin-bottom: 10px;
+  width: 100%;
 }
+
+.img-carousel {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
 
 .content {
   display: flex;
   flex-flow: column nowrap;
+  padding: 5px;
 }
 
 .anime-content {
   display: flex;
+  overflow: hidden;
 }
 
 .manga-content {
   display: flex;
+  border: 1px solid black;
+}
+
+.test {
+  margin: 5px;
+  border-radius: 10px;
+}
+.test1 {
+  background-color: transparent;
+  border: none;
+}
+.fas {
+  font-size: 70px;
 }

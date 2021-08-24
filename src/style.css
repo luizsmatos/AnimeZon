@@ -97,3 +97,16 @@ button {
   justify-content: center;
   margin-bottom: 10px;
 }
+
+.content {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.anime-content {
+  display: flex;
+}
+
+.manga-content {
+  display: flex;
+}

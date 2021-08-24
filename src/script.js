@@ -10,12 +10,21 @@ function createProductItemElement(product) {
   return image;
 }
 
-function getInfosApi(object) {
+function getInfosAnime(object) {
   const infos = object.top.map((element) => ({
      image: element.image_url,
     }));
   return infos.forEach((product) => {
     animeContent.appendChild(createProductItemElement(product));
+  });
+}
+
+function getInfosManga(object) {
+  const infos = object.top.map((element) => ({
+     image: element.image_url,
+    }));
+  return infos.forEach((product) => {
+    mangaContent.appendChild(createProductItemElement(product));
   });
 }
 
@@ -41,7 +50,7 @@ async function fetchApiAnime() {
   try {
     const response = await fetch(url);
     const data = await response.json()
-    getInfosApi(data);
+    getInfosAnime(data);
   } catch (error) {
     messageError(error);
   }
@@ -53,7 +62,7 @@ async function fetchApiManga() {
   try {
     const response = await fetch(url);
     const data = await response.json()
-    getInfosApi(data);
+    getInfosManga(data);
   } catch (error) {
     messageError(error);
   }
@@ -62,7 +71,7 @@ async function fetchApiManga() {
 
 window.onload = () => {
   fetchApiAnime()
-  // fetchApiManga()
+  fetchApiManga()
 };
 
 // ENDPOINTS:

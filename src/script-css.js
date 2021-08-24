@@ -6,4 +6,3 @@ const toggleMenu = () => {
 } 
 
 buttonMenu.addEventListener('click', toggleMenu);
-buttonMenu.addEventListener('touchstart', toggleMenu);

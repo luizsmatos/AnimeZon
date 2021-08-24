@@ -19,6 +19,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: var(--primary-white-font);
+}
+
 button {
   border: unset;
   cursor: pointer;
@@ -48,7 +52,7 @@ button {
 #search-select {
   border-radius: 10px 0 0 10px;
   background: linear-gradient(35deg, rgb(115, 66, 228), rgb(155, 117, 243));
-  height: 32px;
+  height: 30px;
   border: none;
   font-weight: 900;
 }
@@ -56,7 +60,7 @@ button {
 .input-search {
   border: none;
   width: 260px;
-  height: 32px;
+  height: 30px;
   outline: none;
   padding: 0 10px;
 }
@@ -133,10 +137,12 @@ button {
   margin: 5px;
   border-radius: 10px;
 }
-.test1 {
-  background-color: transparent;
+
+.anime-content button {
   border: none;
+  background-color: transparent;
 }
-.fas {
+
+.fas-carousel {
   font-size: 70px;
 }

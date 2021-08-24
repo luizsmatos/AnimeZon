@@ -4,8 +4,8 @@ const toggleMenu = (event) => {
   if (event.type === 'touchstart') {
     event.preventDefault()
   }
-  const navHeader = document.querySelector('.header-container');
-  navHeader.classList.toggle('active');
+  const headerContainer = document.querySelector('.header-container');
+  headerContainer.classList.toggle('active');
 } 
 
 buttonMenu.addEventListener('click', toggleMenu);

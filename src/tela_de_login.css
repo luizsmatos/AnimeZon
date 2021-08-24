@@ -41,7 +41,7 @@ body {
   background: rgb(32, 32, 36);
   padding: 64px;
   border-radius: 5px;
-  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.445);
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.801);
   display: flex;
   flex-flow: column;
 }
@@ -110,6 +110,7 @@ body {
 
 .form-sign-in .login-register .not-account a {
   text-decoration: none;
+  font-weight: 600;
   color: var(--primary-purple);
 }
 

@@ -11,14 +11,14 @@ buttonRight[0].onclick = () => {
   animeContent.scrollLeft += 500;
 };
 buttonLeft[0].onclick = () => {
-  animeContent.scrollLeft -= 1000;
+  animeContent.scrollLeft -= 500;
 };
 
 buttonRight[1].onclick = () => {
   mangaContent.scrollLeft += 500;
 };
 buttonLeft[1].onclick = () => {
-  mangaContent.scrollLeft -= 1000;
+  mangaContent.scrollLeft -= 500;
 };
 
 function createStreamingElement(product) {
@@ -29,7 +29,6 @@ function createStreamingElement(product) {
 }
 
 function getInfosApis(object, type) {
-
   const infos = object.top.map((element) => ({
      image: element.image_url,
     }));
@@ -45,7 +44,6 @@ function getInfosApis(object, type) {
       });
     }
 }
-
 
 const messageError = (error) => console.log(error.message);
 

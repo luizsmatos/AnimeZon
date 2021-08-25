@@ -95,15 +95,15 @@ body {
 }
 
 .button-search {
-<<<<<<< HEAD
   border-radius: 0 10px 10px 0;
   padding: 3px;
   width: 10%;
-=======
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   padding: 10px;
->>>>>>> f8a7c1d403b777a87677306400d991501002d467
+  border-radius: 0 10px 10px 0;
+  padding: 3px;
+  width: 10%;
   background-color: white;
 }
 
@@ -182,15 +182,14 @@ body {
   object-fit: cover;
 }
 
-<<<<<<< HEAD
 .container-anime {
   padding: 20px 0;
-=======
+}
 .title-contents {
   color: var(--primary-purple);
   font-weight: 900;
   margin: 1rem 2rem;
->>>>>>> f8a7c1d403b777a87677306400d991501002d467
+  padding: 20px 0;
 }
 
 .content {
@@ -204,7 +203,6 @@ body {
   display: flex;
   overflow: hidden;
   scroll-behavior: smooth;
-<<<<<<< HEAD
   padding: 10px 0;
 }
 
@@ -212,8 +210,6 @@ body {
   width: 30%;
   margin-left: 25px;
   margin-bottom: -10px;
-=======
->>>>>>> f8a7c1d403b777a87677306400d991501002d467
 }
 
 .item {
@@ -236,7 +232,6 @@ body {
 }
 
 .fas-carousel {
-<<<<<<< HEAD
   font-size: 40px;
   color: var(--primary-white-font);
 }
@@ -254,7 +249,6 @@ body {
   background: blue;
   margin-bottom: 10px;
   padding: 25px;
-=======
   font-size: 70px;
   color: var(--primary-white-font);
   background-color: transparent;
@@ -298,6 +292,4 @@ body {
     line-height: 0;
     padding: 30px;
   }
-
->>>>>>> f8a7c1d403b777a87677306400d991501002d467
 }

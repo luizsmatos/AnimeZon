@@ -1,18 +1,24 @@
-const body = document.querySelector('body')
-const mainCarousel = document.querySelector('.main-carousel')
+const body = document.querySelector('body');
+const mainCarousel = document.querySelector('.main-carousel');
 const mainContent = document.querySelector('.main-content');
 const animeContent = document.querySelector('#carouselAnime');
-const mangaContent = document.querySelector('.manga-content');
+const mangaContent = document.querySelector('#carouselManga');
 
+const buttonRight = document.querySelectorAll('.direito');
+const buttonLeft = document.querySelectorAll('.esquerdo');
 
-const buttonRight = document.getElementById('direito');
-const buttonLeft = document.getElementById('esquerdo');
-
-buttonRight.onclick = function () {
+buttonRight[0].onclick = function () {
   animeContent.scrollLeft += 500;
 };
-buttonLeft.onclick = function () {
+buttonLeft[0].onclick = function () {
   animeContent.scrollLeft -= 1000;
+};
+
+buttonRight[1].onclick = function () {
+  mangaContent.scrollLeft += 500;
+};
+buttonLeft[1].onclick = function () {
+  mangaContent.scrollLeft -= 1000;
 };
 
 function createStreamingElement(product) {
@@ -83,8 +89,8 @@ async function fetchApiManga() {
 }
 
 window.onload = () => {
-  fetchApiAnime()
-  // fetchApiManga()
+  fetchApiAnime();
+  fetchApiManga()
 };
 
 // ENDPOINTS:

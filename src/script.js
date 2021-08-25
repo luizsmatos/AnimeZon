@@ -84,7 +84,7 @@ async function fetchApiManga() {
 
 window.onload = () => {
   fetchApiAnime()
-  // fetchApiManga()
+  fetchApiManga()
 };
 
 // ENDPOINTS:

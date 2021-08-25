@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
   <link rel="stylesheet" href="../font-awesome/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
@@ -17,25 +18,26 @@
       <button id="btn-hamburguer">
         <span id="hamburguer-menu"></span>
     </button>
-      <h3>Projeto</h3>
+      <h3>AnimeZon</h3>
     </section>
       <section class="header-container">
-        <section class="search-container">
-          <select id="search-select">
-            <option value="All">Todos</option>
-            <option value="Anime">Anime</option>
-            <option value="Manga">Manga</option>
-            <option value="Characters">Personagens</option>
-            <option value="People">Pessoas</option>
-            <option value="Manga Store">Loja de Mangá</option>
-            <option value="News">Notícias</option>
-            <option value="Feature Articles">Feature Articles</option>
-            <option value="Forum">Forum</option>
-            <option value="Club">Clube</option>
-          </select>
-          <input class="input-search" type="text" />
-          <button class="button-search"><i class="fas fa-search"></i></button>
-        </section>
+          <div class="input-group search-container">
+            <button class="btn btn-outline-secondary dropdown-toggle select-dropdown" type="button" data-bs-toggle="dropdown">Todos</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" id="all" href="#">Todos</a></li>
+              <li><a class="dropdown-item" id="anime" href="#">Anime</a></li>
+              <li><a class="dropdown-item" id="manga" href="#">Mangá</a></li>
+              <li><a class="dropdown-item" id="characters" href="#">Personagens</a></li>
+              <li><a class="dropdown-item" id="people" href="#">Pessoas</a></li>
+              <li><a class="dropdown-item" id="manga-store" href="#">Loja de Mangá</a></li>
+              <li><a class="dropdown-item" id="news" href="#">Noticias</a></li>
+              <li><a class="dropdown-item" id="feature-articles" href="#">Feature Articles</a></li>
+              <li><a class="dropdown-item" id="forum" href="#">Forum</a></li>
+              <li><a class="dropdown-item" id="club" href="#">Clube</a></li>
+            </ul>
+            <input type="text" class="form-control input-search" placeholder="Pesquise por animes, mangas e personagens">
+            <button class="button-search"><i class="fas fa-search"></i></button>
+          </div>
         <a href="tela_login.html" target="_blank" rel="next">Entrar</a>
       </section>
     </header>
@@ -87,22 +89,26 @@
       <section class= "content">
       <div>
         <h3>Anime</h3>
-        <div class ="anime-content">
-          <button  id = "esquerdo"><i class="fas fa-angle-left fas-carousel"></i></button>
-            <div class="anime-content" id = "carouselAnime">
-            </div>
-          <button id = "direito"><i class="fas fa-angle-right fas-carousel"></i></button>
+        <div class="anime-content">
+          <button class="left-button"><i class="fas fa-angle-left fas-carousel"></i></button>
+            <div class="anime-content" id="carouselAnime"></div>
+          <button class="right-button"><i class="fas fa-angle-right fas-carousel"></i></button>
         </div>
       </div>
       <div>
         <h3>Manga</h3>
-        <div class="manga-content" id = "carouselManga"></div>
+        <div class="manga-content">
+          <button class="left-button"><i class="fas fa-angle-left fas-carousel"></i></button>
+          <div class="manga-content" id="carouselManga"></div>
+        <button class="right-button"><i class="fas fa-angle-right fas-carousel"></i></button>
+        </div>
       </div>
     </section>
     <aside class = "news-content">
     </aside>
     </section>
   </main>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

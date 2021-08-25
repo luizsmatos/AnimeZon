@@ -54,9 +54,6 @@ button {
 .dropdown-menu {
   background: linear-gradient(35deg, rgb(115, 66, 228), rgb(155, 117, 243));
 }
-.dropdown-item {
-  transition: 0.5s;
-}
 
 .dropdown-item:hover {
   font-weight: 900;
@@ -64,9 +61,12 @@ button {
 
 .input-search {
   border: none;
-  width: 260px;
   outline: none;
   padding: 0 10px;
+}
+
+.input-group>.form-control, .input-group>.form-select {
+  width: 260px;
 }
 
 .button-search {

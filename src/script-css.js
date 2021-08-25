@@ -4,8 +4,8 @@ const dropdownItems = document.querySelectorAll('.dropdown-item');
 
 const selectDropdown = (event) => {
   const clicked = event.target;
-  clicked.classList.toggle('active-item')
-  searchDropdownButton.innerText = clicked.innerText
+  clicked.classList.toggle('active-item');
+  searchDropdownButton.innerText = clicked.innerText;
 };
 
 const toggleMenu = () => {
@@ -15,4 +15,4 @@ const toggleMenu = () => {
 
 buttonMenu.addEventListener('click', toggleMenu);
 
-dropdownItems.forEach((element) => element.addEventListener('click', selectDropdown))
+dropdownItems.forEach((element) => element.addEventListener('click', selectDropdown));

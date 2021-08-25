@@ -143,11 +143,6 @@ button {
   transition: 0.5s;
 }
 
-.test:hover {
-  background-color: var(--primary-purple);;
-  padding-right: 180px;
-}
-
 .anime-content button, .manga-content button{
   border: none;
   background-color: transparent;

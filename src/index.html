@@ -20,22 +20,23 @@
       <h3>AnimeZon</h3>
     </section>
       <section class="header-container">
-        <section class="search-container">
-          <select id="search-select">
-            <option value="All">Todos</option>
-            <option value="Anime">Anime</option>
-            <option value="Manga">Manga</option>
-            <option value="Characters">Personagens</option>
-            <option value="People">Pessoas</option>
-            <option value="Manga Store">Loja de Mangá</option>
-            <option value="News">Notícias</option>
-            <option value="Feature Articles">Feature Articles</option>
-            <option value="Forum">Forum</option>
-            <option value="Club">Clube</option>
-          </select>
-          <input class="input-search" type="text" />
-          <button class="button-search"><i class="fas fa-search"></i></button>
-        </section>
+          <div class="input-group search-container">
+            <button class="btn btn-outline-secondary dropdown-toggle search-select" type="button" data-bs-toggle="dropdown">Todos</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" id="all" href="#">Todos</a></li>
+              <li><a class="dropdown-item" id="anime" href="#">Anime</a></li>
+              <li><a class="dropdown-item" id="manga" href="#">Mangá</a></li>
+              <li><a class="dropdown-item" id="characters" href="#">Personagens</a></li>
+              <li><a class="dropdown-item" id="people" href="#">Pessoas</a></li>
+              <li><a class="dropdown-item" id="manga-store" href="#">Loja de Mangá</a></li>
+              <li><a class="dropdown-item" id="news" href="#">Noticias</a></li>
+              <li><a class="dropdown-item" id="feature-articles" href="#">Feature Articles</a></li>
+              <li><a class="dropdown-item" id="forum" href="#">Forum</a></li>
+              <li><a class="dropdown-item" id="club" href="#">Clube</a></li>
+            </ul>
+            <input type="text" class="form-control input-search" aria-label="Text input with dropdown button">
+            <button class="button-search"><i class="fas fa-search"></i></button>
+          </div>
         <a href="tela_login.html" target="_blank" rel="next">Entrar</a>
       </section>
     </header>

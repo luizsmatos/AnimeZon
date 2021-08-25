@@ -44,23 +44,27 @@ button {
   gap: 1rem;
 }
 
-.search-container {
-  display: flex;
-  align-items: center;
-}
-
-#search-select {
+.search-select {
   border-radius: 10px 0 0 10px;
   background: linear-gradient(35deg, rgb(115, 66, 228), rgb(155, 117, 243));
-  height: 30px;
-  border: none;
+  color: black;
+  font-weight: 900;
+}
+
+.dropdown-menu {
+  background: linear-gradient(35deg, rgb(115, 66, 228), rgb(155, 117, 243));
+}
+.dropdown-item {
+  transition: 0.5s;
+}
+
+.dropdown-item:hover {
   font-weight: 900;
 }
 
 .input-search {
   border: none;
   width: 260px;
-  height: 30px;
   outline: none;
   padding: 0 10px;
 }
@@ -134,8 +138,10 @@ button {
 }
 
 .test {
+  cursor: pointer;
   margin: 5px;
   border-radius: 10px;
+  transition: 0.5s;
 }
 
 .anime-content button {

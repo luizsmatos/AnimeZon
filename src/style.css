@@ -32,6 +32,10 @@ button {
   cursor: pointer;
 }
 
+body {
+  background-color: var(--primary-black);
+}
+
 .header {
   display: flex;
   position: fixed;
@@ -141,10 +145,6 @@ button {
   width: 35%;
 }
 
-.main {
-  background-color: var(--primary-black);
-}
-
 .main-carousel {
   margin-top: 65px;
   margin-bottom: 10px;
@@ -194,5 +194,8 @@ button {
 }
 
 .footer {
-  
+  margin-top: 1rem;
+  background-color: rgb(12, 11, 11);
+  height: 50vh;
+  border-top-left-radius: 50px;
 }

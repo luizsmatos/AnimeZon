@@ -1,0 +1,30 @@
+{
+  "name": "animezon",
+  "version": "1.0.0",
+  "description": "Projeto animezon",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "aos": "^2.3.4",
+    "eslint-config-trybe-fundamentals": "^1.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "jest": "^27.0.6"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luizsmatos/AnimeZon.git"
+  },
+  "author": "Michael Caxias, Luiz Gustavo, Kelner Roberto, Victor Martins, Matheus Szarblewski, Diogo Fiuza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luizsmatos/AnimeZon/issues"
+  },
+  "homepage": "https://github.com/luizsmatos/AnimeZon#readme"
+}

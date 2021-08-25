@@ -7,17 +7,17 @@ const mangaContent = document.querySelector('#carouselManga');
 const buttonRight = document.querySelectorAll('.direito');
 const buttonLeft = document.querySelectorAll('.esquerdo');
 
-buttonRight[0].onclick = function () {
+buttonRight[0].onclick = () => {
   animeContent.scrollLeft += 500;
 };
-buttonLeft[0].onclick = function () {
+buttonLeft[0].onclick = () => {
   animeContent.scrollLeft -= 1000;
 };
 
-buttonRight[1].onclick = function () {
+buttonRight[1].onclick = () => {
   mangaContent.scrollLeft += 500;
 };
-buttonLeft[1].onclick = function () {
+buttonLeft[1].onclick = () => {
   mangaContent.scrollLeft -= 1000;
 };
 
@@ -81,7 +81,7 @@ async function fetchApiManga() {
 
   try {
     const response = await fetch(url);
-    const data = await response.json()
+    const data = await response.json();
     getInfosApis(data, 'manga');
   } catch (error) {
     messageError(error);
@@ -90,7 +90,7 @@ async function fetchApiManga() {
 
 window.onload = () => {
   fetchApiAnime();
-  fetchApiManga()
+  fetchApiManga();
 };
 
 // ENDPOINTS:

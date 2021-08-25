@@ -141,6 +141,10 @@ button {
   width: 35%;
 }
 
+.main {
+  background-color: var(--primary-black);
+}
+
 .main-carousel {
   margin-top: 65px;
   margin-bottom: 10px;
@@ -153,11 +157,15 @@ button {
   object-fit: cover;
 }
 
+.title-contents {
+  color: var(--primary-purple);
+  font-weight: 900;
+  margin: 1rem 2rem;
+}
 
 .content {
   display: flex;
   flex-flow: column nowrap;
-  padding: 5px;
 }
 
 .anime-content, .manga-content {
@@ -180,4 +188,5 @@ button {
 
 .fas-carousel {
   font-size: 70px;
+  color: var(--primary-white-font);
 }

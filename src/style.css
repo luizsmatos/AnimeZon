@@ -23,13 +23,25 @@ a:hover {
   color: var(--primary-white-font);
 }
 
+ul {
+  list-style: none;
+}
+
 button {
   border: unset;
   cursor: pointer;
 }
 
+body {
+  background-color: var(--primary-black);
+}
+
 .header {
   display: flex;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
   background-color: var(--primary-black);
   height: 10%;
   padding: 15px;
@@ -76,7 +88,7 @@ button {
 .button-search {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  padding: 3px;
+  padding: 10px;
   background-color: white;
 }
 
@@ -113,7 +125,28 @@ button {
   margin-top: -2px;
 }
 
+.aside-menu {
+  display: flex;
+  visibility: hidden;
+  position: absolute;
+  gap: 9rem;
+  background-color: var(--primary-black);
+  top: 65px;
+  left: 0;
+  width: 0;
+  height: calc(100vh - 10%);
+  z-index: 90;
+  transition: 0.5s;
+  overflow: auto;
+}
+
+.header-container.active .aside-menu {
+  visibility: visible;
+  width: 35%;
+}
+
 .main-carousel {
+  margin-top: 65px;
   margin-bottom: 10px;
   width: 100%;
 }
@@ -124,16 +157,23 @@ button {
   object-fit: cover;
 }
 
+.title-contents {
+  color: var(--primary-purple);
+  font-weight: 900;
+  margin: 1rem 2rem;
+}
 
 .content {
   display: flex;
   flex-flow: column nowrap;
-  padding: 5px;
+  gap: 3rem;
+  padding: 2rem 0;
 }
 
 .anime-content, .manga-content {
   display: flex;
   overflow: hidden;
+  scroll-behavior: smooth;
 }
 
 .item {
@@ -150,4 +190,47 @@ button {
 
 .fas-carousel {
   font-size: 70px;
+  color: var(--primary-white-font);
+  background-color: transparent;
+}
+
+.footer {
+  margin-top: 1rem;
+  background-color: rgb(12, 11, 11);
+  height: 50vh;
+}
+
+@media screen and (max-width: 600px) {
+  .input-group>.form-control, .input-group>.form-select {
+    width: 25%;
+  }
+
+  .sign-up-desktop {
+    display: none;
+  }
+
+  .header {
+    height: 60px;
+    padding: 0;
+  }
+
+  .aside-menu {
+    height: calc(100vh - 8%);
+    top: 60px;
+  }
+  
+  .header-container.active .aside-menu {
+    visibility: visible;
+    width: 100%;
+  }
+
+  .header-container h3 {
+    display: none;
+  }
+
+  .search-container {
+    line-height: 0;
+    padding: 30px;
+  }
+
 }

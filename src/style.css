@@ -55,8 +55,12 @@ button {
   background: linear-gradient(35deg, rgb(115, 66, 228), rgb(155, 117, 243));
 }
 
-.dropdown-item:hover {
+.dropdown-item {
   font-weight: 900;
+}
+.dropdown-item:hover {
+  background-color: var(--primary-purple);
+  color: white;
 }
 
 .input-search {
@@ -137,6 +141,11 @@ button {
   margin: 5px;
   border-radius: 10px;
   transition: 0.5s;
+}
+
+.test:hover {
+  background-color: var(--primary-purple);;
+  padding-right: 180px;
 }
 
 .anime-content button, .manga-content button{

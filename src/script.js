@@ -23,8 +23,8 @@ buttonLeft[1].onclick = function () {
 
 function createStreamingElement(product) {
   const image = document.createElement('img');
-  image.classList = 'test'
-  image.setAttribute('src', product.image)
+  image.classList = 'item';
+  image.setAttribute('src', product.image);
   return image;
 }
 

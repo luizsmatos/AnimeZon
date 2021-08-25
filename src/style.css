@@ -188,8 +188,7 @@ body {
 .title-contents {
   color: var(--primary-purple);
   font-weight: 900;
-  margin: 1rem 2rem;
-  padding: 20px 0;
+  margin: 10px 2rem;
 }
 
 .content {
@@ -204,12 +203,6 @@ body {
   overflow: hidden;
   scroll-behavior: smooth;
   padding: 10px 0;
-}
-
-.title-anime, .title-manga {
-  width: 30%;
-  margin-left: 25px;
-  margin-bottom: -10px;
 }
 
 .item {
@@ -283,12 +276,11 @@ body {
     width: 100%;
   }
 
-  .header-container h3 {
+  .title {
     display: none;
   }
 
   .search-container {
-    line-height: 0;
     padding: 30px;
   }
 }

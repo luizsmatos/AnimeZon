@@ -191,6 +191,7 @@ body {
 .fas-carousel {
   font-size: 70px;
   color: var(--primary-white-font);
+  background-color: transparent;
 }
 
 .footer {
@@ -200,7 +201,36 @@ body {
 }
 
 @media screen and (max-width: 600px) {
-  main {
-    background-color: green;
+  .input-group>.form-control, .input-group>.form-select {
+    width: 25%;
   }
+
+  .sign-up-desktop {
+    display: none;
+  }
+
+  .header {
+    height: 60px;
+    padding: 0;
+  }
+
+  .aside-menu {
+    height: calc(100vh - 8%);
+    top: 60px;
+  }
+  
+  .header-container.active .aside-menu {
+    visibility: visible;
+    width: 100%;
+  }
+
+  .header-container h3 {
+    display: none;
+  }
+
+  .search-container {
+    line-height: 0;
+    padding: 30px;
+  }
+
 }

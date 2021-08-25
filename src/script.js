@@ -3,6 +3,9 @@ const mainCarousel = document.querySelector('.main-carousel')
 const mainContent = document.querySelector('.main-content');
 const animeContent = document.querySelector('#carouselAnime');
 const mangaContent = document.querySelector('.manga-content');
+const selector = document.querySelector('#search-container');
+const inputSearch = document.querySelector('.input-search');
+const buttonSearch = document.querySelector('.button-search');
 
 
 const buttonRight = document.getElementById('direito');
@@ -81,6 +84,7 @@ async function fetchApiManga() {
     messageError(error);
   }
 }
+
 
 window.onload = () => {
   fetchApiAnime()

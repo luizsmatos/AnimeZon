@@ -16,3 +16,6 @@ const toggleMenu = () => {
 buttonMenu.addEventListener('click', toggleMenu);
 
 dropdownItems.forEach((element) => element.addEventListener('click', selectDropdown));
+
+// eslint-disable-next-line no-undef
+AOS.init();

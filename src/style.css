@@ -134,6 +134,7 @@ button {
 .anime-content, .manga-content {
   display: flex;
   overflow: hidden;
+  scroll-behavior: smooth;
 }
 
 .item {

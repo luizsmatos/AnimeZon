@@ -4,8 +4,8 @@ const mainContent = document.querySelector('.main-content');
 const animeContent = document.querySelector('#carouselAnime');
 const mangaContent = document.querySelector('#carouselManga');
 
-const buttonRight = document.querySelectorAll('.direito');
-const buttonLeft = document.querySelectorAll('.esquerdo');
+const buttonRight = document.querySelectorAll('.right-button');
+const buttonLeft = document.querySelectorAll('.left-button');
 
 buttonRight[0].onclick = () => {
   animeContent.scrollLeft += 500;

@@ -239,6 +239,7 @@ body {
 /* NEW - ASIDE RIGHT */
 .news-content {
   width: 30%;
+  margin: 55px 0 0 0;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -249,9 +250,7 @@ body {
   background: blue;
   margin-bottom: 10px;
   padding: 25px;
-  font-size: 70px;
   color: var(--primary-white-font);
-  background-color: transparent;
 }
 
 .footer {

@@ -44,7 +44,7 @@ button {
   gap: 1rem;
 }
 
-.search-select {
+.select-dropdown {
   border-radius: 10px 0 0 10px;
   background: linear-gradient(35deg, rgb(115, 66, 228), rgb(155, 117, 243));
   color: black;

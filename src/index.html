@@ -19,24 +19,27 @@
     </button>
       <h3>Projeto</h3>
     </section>
-    <section class="header-container">
-      <section class="search-container">
-        <select id="search-select">
-          <option value="All" id='all'>Todos</option>
-          <option value="Anime" id='anime'>Anime</option>
-          <option value="Manga" id='manga'>Manga</option>
-          <option value="Characters" id='characters'>Personagens</option>
-          <option value="People" id='people'>Pessoas</option>
-          <option value="Manga Store" id='manga-store'>Loja de Mangá</option>
-          <option value="News" id='news'>Notícias</option>
-          <option value="Feature Articles" id='features-articles'>Feature Articles</option>
-          <option value="Forum" id='forum'>Forum</option>
-          <option value="Club" id='club'>Clube</option>
-        </select>
-        <input class="input-search" type="text">
-        <button class="button-search"><i class="fas fa-search"></i></button>
-      </section>
+      <section class="header-container">
+        <section class="search-container">
+          <select id="search-select">
+            <option value="All">Todos</option>
+            <option value="Anime">Anime</option>
+            <option value="Manga">Manga</option>
+            <option value="Characters">Personagens</option>
+            <option value="People">Pessoas</option>
+            <option value="Manga Store">Loja de Mangá</option>
+            <option value="News">Notícias</option>
+            <option value="Feature Articles">Feature Articles</option>
+            <option value="Forum">Forum</option>
+            <option value="Club">Clube</option>
+          </select>
+          <input class="input-search" type="text" />
+          <button class="button-search"><i class="fas fa-search"></i></button>
+        </section>
         <a href="tela_login.html" target="_blank" rel="next">Entrar</a>
+      </section>
+    </header>
+    <!-- CABEÇALHO -->
     </section>
   </header>
   <main>
@@ -85,13 +88,11 @@
       <div>
         <h3>Anime</h3>
         <div class ="anime-content">
-          <button  id = "esquerdo"><i class="fas fa-angle-left"></i></button>
+          <button  id = "esquerdo"><i class="fas fa-angle-left fas-carousel"></i></button>
             <div class="anime-content" id = "carouselAnime">
-
             </div>
-          <button id = "direito"><i class="fas fa-angle-right"></i></button>
+          <button id = "direito"><i class="fas fa-angle-right fas-carousel"></i></button>
         </div>
-
       </div>
       <div>
         <h3>Manga</h3>
@@ -99,11 +100,9 @@
       </div>
     </section>
     <aside class = "news-content">
-
     </aside>
     </section>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
-

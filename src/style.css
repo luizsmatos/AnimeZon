@@ -1,12 +1,26 @@
+:root {
+  --primary-purple: rgb(115, 66, 228);
+
+  --primary-black: rgb(18, 18, 20);
+
+  --primary-white-font: rgb(255, 255, 230);
+}
+
+
 * {
   padding: 0;
   margin: 0;
   font-family: sans-serif;
+  box-sizing: border-box;
 }
 
 a {
-  color: white;
+  color: var(--primary-white-font);
   text-decoration: none;
+}
+
+a:hover {
+  color: var(--primary-white-font);
 }
 
 button {
@@ -16,12 +30,12 @@ button {
 
 .header {
   display: flex;
-  background-color: #030913;
+  background-color: var(--primary-black);
   height: 10%;
   padding: 15px;
   align-items: center;
   justify-content: space-between;
-  color: white;
+  color: var(--primary-white-font);
 }
 
 .header-container {
@@ -36,9 +50,8 @@ button {
 }
 
 #search-select {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  background: linear-gradient(35deg, rgb(0, 150, 209), aqua);
+  border-radius: 10px 0 0 10px;
+  background: linear-gradient(35deg, rgb(115, 66, 228), rgb(155, 117, 243));
   height: 30px;
   border: none;
   font-weight: 900;
@@ -48,6 +61,8 @@ button {
   border: none;
   width: 260px;
   height: 30px;
+  outline: none;
+  padding: 0 10px;
 }
 
 .button-search {
@@ -122,10 +137,12 @@ button {
   margin: 5px;
   border-radius: 10px;
 }
-.test1 {
-  background-color: transparent;
+
+.anime-content button {
   border: none;
+  background-color: transparent;
 }
-.fas {
+
+.fas-carousel {
   font-size: 70px;
 }

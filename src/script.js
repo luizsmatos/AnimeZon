@@ -15,7 +15,7 @@ buttonLeft.onclick = function () {
   animeContent.scrollLeft -= 1000;
 };
 
-function createProductItemElement(product) {
+function createStreamingElement(product) {
   const image = document.createElement('img');
   image.classList = 'test'
   image.setAttribute('src', product.image)
@@ -29,13 +29,13 @@ function getInfosApis(object, type) {
     }));
     if(type === 'anime') {
       return infos.forEach((product) => {
-        animeContent.appendChild(createProductItemElement(product));
+        animeContent.appendChild(createStreamingElement(product));
       });
     }
 
     if(type === 'manga') {
       return infos.forEach((product) => {
-        mangaContent.appendChild(createProductItemElement(product));
+        mangaContent.appendChild(createStreamingElement(product));
       });
     }
 }
@@ -44,24 +44,25 @@ function getInfosApis(object, type) {
 const messageError = (error) => console.log(error.message);
 
 async function getNameAnimeOrManga(type, name) {
-  const url = `https://api.jikan.moe/v3/search/${type}?q=${name}&page=1`
+  const url = `https://api.jikan.moe/v3/search/${type}?q=${name}&page=1`;
 
   try {
     const response = await fetch(url);
     const data = await response.json();
-    return data.results.forEach((element) => {  
-      const anime = (element);
-  });
+    return data.results.forEach((element) => {
+      const anime = element;
+    });
   } catch (error) {
     messageError(error);
   }
 }
 
 async function fetchApiAnime() {
-  const url = 'https://api.jikan.moe/v3/top/anime/1/favorite'
+  const url = "https://api.jikan.moe/v3/top/anime/1/favorite";
 
   try {
     const response = await fetch(url);
+
     const data = await response.json()
     getInfosApis(data, 'anime');
   } catch (error) {
@@ -70,7 +71,7 @@ async function fetchApiAnime() {
 }
 
 async function fetchApiManga() {
-  const url = 'https://api.jikan.moe/v3/top/manga/1/favorite'
+  const url = "https://api.jikan.moe/v3/top/manga/1/favorite";
 
   try {
     const response = await fetch(url);
@@ -80,7 +81,6 @@ async function fetchApiManga() {
     messageError(error);
   }
 }
-
 
 window.onload = () => {
   fetchApiAnime()

@@ -6,7 +6,6 @@
   --primary-white-font: rgb(255, 255, 230);
 }
 
-
 * {
   padding: 0;
   margin: 0;
@@ -36,6 +35,11 @@ button {
   align-items: center;
   justify-content: space-between;
   color: var(--primary-white-font);
+}
+
+.title {
+  font-size: 1.2em;
+  margin-top: 10px;
 }
 
 .header-container {
@@ -82,7 +86,7 @@ button {
 
 #btn-hamburguer {
   display: flex;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
   border: none;
   background: none;
@@ -90,6 +94,7 @@ button {
 
 #hamburguer-menu {
   width: 20px;
+  margin-top: -5px;
   color: #D7D7D7;
 }
 

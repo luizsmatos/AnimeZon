@@ -47,7 +47,6 @@ body {
   top: 0;
   z-index: 100;
   background-color: var(--primary-black);
-  height: 8%;
   padding: 15px;
   align-items: center;
   justify-content: space-between;

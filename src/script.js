@@ -46,11 +46,17 @@ function getInfosApis(object, type) {
     }
 }
 
-function createCustomElement(element, className, innerText) {
-  const e = document.createElement(element);
+function createCustomElement(element, className, innerText, url) {
+  if (!url) {
+ const e = document.createElement(element);
+  e.innerText = innerText; 
   e.className = className;
-  e.innerText = innerText;
   return e;
+} 
+  const a = document.createElement('a');
+  a.href = url;
+  a.innerHTML = `<p class='${className}'>${innerText}</p>`;
+  return a;
 }
 
 function createItemElement({ rank, title, image_url, type, start_date, score }, top) {
@@ -116,24 +122,40 @@ function characterItem({ image_url, name, anime, manga }) {
   main.appendChild(mainDiv);
 }
 
+function createTextScore(score) {
+  return `Nota média: ${score}`;
+}
+
+function createStartDateText(start_date) {
+  return `Data de Lançamento: ${start_date.split('T')[0]}`;
+}
+
+function createEpisodesText(episodes) {
+  return `Episódios: ${episodes}`;
+}
+
+function createVolumeText(volumes) {
+  if (volumes === 0) return 'Volumes: -';
+  return `Volumes: ${volumes}`;
+}
 // Função para criar os cards, caso seja selecionado, no dropdown, qualquer outra opção diferente de 'Personagens':
-function searchedItems({ title, image_url, synopsis, score, start_date, episodes }) {
+function searchedItems({ title, image_url, synopsis, score, start_date, episodes, volumes, url }) {
   const main = document.querySelector('main');
   const mainDiv = document.createElement('div');
   mainDiv.classList.add('searched-div');
   const divImg = document.createElement('div');
   const textDiv = document.createElement('div');
 
-  const scoreText = `Nota média: ${score}`;
-  const startDate = `Data de Lançamento: ${start_date.split('T')[0]}`;
-  const episode = `Episódios: ${episodes}`;
-
   divImg.appendChild(createStreamingElement('image__search', image_url));
-  textDiv.appendChild(createCustomElement('p', 'item__title', title));
+  textDiv.appendChild(createCustomElement('p', 'item__title', title, url));
   textDiv.appendChild(createCustomElement('p', 'item__synopsis', synopsis));
-  textDiv.appendChild(createCustomElement('p', 'item__startdate', startDate));
-  textDiv.appendChild(createCustomElement('p', 'item__episode', episode));
-  textDiv.appendChild(createCustomElement('p', 'item__score', scoreText));
+  textDiv.appendChild(createCustomElement('p', 'item__startdate', createStartDateText(start_date)));
+  if (!episodes) { 
+    textDiv.appendChild(createCustomElement('p', 'item__volume', createVolumeText(volumes))); 
+  } else {
+    textDiv.appendChild(createCustomElement('p', 'item__episode', createEpisodesText(episodes)));
+  }
+  textDiv.appendChild(createCustomElement('p', 'item__score', createTextScore(score)));
 
   mainDiv.appendChild(divImg);
   mainDiv.appendChild(textDiv);

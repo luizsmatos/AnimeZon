@@ -104,25 +104,11 @@ buttonSearch.addEventListener('click', () => {
   */
   const inputValue = inputSearch.value;
   const selectedDropDown = document.querySelector('.active-item').id;
+  console.log(selectedDropDown);
   if (selectedDropDown === 'characters') { getCharacters(inputValue) }
-  getNameAnimeOrManga(selectedDropDown, inputValue);
+  getSearchAnimeOrManga(selectedDropDown, inputValue);
 });
 
-
-async function getCharacters(name) {
-  const url = `https://api.jikan.moe/v3/search/character?q=${name}&page=1`;
-
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    return data.results.forEach((element) => {
-      const anime = element;
-      characterItem(anime);
-    });
-  } catch (error) {
-    messageError(error);
-  }
-}
 
 // Função para criar a lista de cards, caso seja selecionado 'Personagem' no dropdown:
 function characterItem ({ image_url, name, anime, manga }) {
@@ -133,8 +119,8 @@ function characterItem ({ image_url, name, anime, manga }) {
   const textDiv = document.createElement('div');
   mainDiv.classList.add('searched-div');
   // Cria os elementos para colocar como filhos das divs acima:
-  const img = document.createElement('img');
-  img.src = image_url;
+  // const img = document.createElement('img');
+  // img.src = image_url;
   const nameText = document.createElement('p');
   const listOfAnimes = anime.map((el) => `<a href='${el.url}'><p class='animes-list-character'> ${el.name}</p></a>`);
   const listOfManga = manga.map((el) => `<a href='${el.url}'><p class='manga-list-character'> ${el.name}</p></a>`);
@@ -160,8 +146,8 @@ function searchedItems ({ title, image_url, synopsis, score, start_date, episode
   const divImg = document.createElement('div');
   const textDiv = document.createElement('div');
   // Cria elementos para ser filhos das divs acima:
-  const img = document.createElement('img');
-  img.src = image_url;
+  // const img = document.createElement('img');
+  // img.src = image_url;
   const synopsisText = document.createElement('p');
   synopsisText.innerText = synopsis;
   const titleText = document.createElement('p');
@@ -173,7 +159,7 @@ function searchedItems ({ title, image_url, synopsis, score, start_date, episode
   const episodesOfAnime = document.createElement('p');
   episodesOfAnime.innerText = `Episódios: ${episodes}`;
   // Faz o append child dos elementos criados acima:
-  divImg.appendChild(img);
+  divImg.appendChild(createStreamingElement('image__search', image_url));
   textDiv.appendChild(titleText);
   textDiv.appendChild(synopsisText);
   textDiv.appendChild(startDate);
@@ -187,6 +173,21 @@ function searchedItems ({ title, image_url, synopsis, score, start_date, episode
 }
 
 const messageError = (error) => console.log(error.message);
+
+async function getCharacters(name) {
+  const url = `https://api.jikan.moe/v3/search/character?q=${name}&page=1`;
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data.results.forEach((element) => {
+      const anime = element;
+      characterItem(anime);
+    });
+  } catch (error) {
+    messageError(error);
+  }
+}
 
 async function getSearchAnimeOrManga(type, name) {
   const url = `https://api.jikan.moe/v3/search/${type}?q=${name}&page=1`;

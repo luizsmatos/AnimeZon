@@ -90,8 +90,12 @@ body {
   padding: 0 10px;
 }
 
+.input-group {
+  flex-wrap: nowrap;
+}
+
 .input-group>.form-control, .input-group>.form-select {
-  width: 50%;
+  width: 400px;
 }
 
 .button-search {

@@ -3,8 +3,12 @@ const searchDropdownButton = document.querySelector('.select-dropdown');
 const dropdownItems = document.querySelectorAll('.dropdown-item');
 
 const selectDropdown = (event) => {
+  dropdownItems.forEach((element) => {
+    element.classList.remove('active-item');
+  });
   const clicked = event.target;
-  clicked.classList.toggle('active-item');
+  console.log(clicked);
+  clicked.classList.add('active-item');
   searchDropdownButton.innerText = clicked.innerText;
 };
 

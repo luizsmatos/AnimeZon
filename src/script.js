@@ -94,20 +94,6 @@ function getInfosTops(object, top) {
     }
   })
 }
-// Event listener do botão de pesquisa:
-buttonSearch.addEventListener('click', () => {
-  const main = document.querySelector('main');
-  // Deixa a main vazia:
-  main.innerHTML = '';
-  /* 
-  Pega o valor do input e chama a função que irá fazer os cards. Neste caso pega pelo 'selectedDropDown' aquele valor que está selecionado na lista do dropdown e já passa o seu Id.Se o elemento selecionado tiver um id = 'characters', chamará a função getCharacters(), caso contrário chamará a função getNameAnimeOrManga():
-  */
-  const inputValue = inputSearch.value;
-  const selectedDropDown = document.querySelector('.active-item').id;
-  console.log(selectedDropDown);
-  if (selectedDropDown === 'characters') { getCharacters(inputValue) }
-  getSearchAnimeOrManga(selectedDropDown, inputValue);
-});
 
 
 // Função para criar a lista de cards, caso seja selecionado 'Personagem' no dropdown:
@@ -119,9 +105,8 @@ function characterItem ({ image_url, name, anime, manga }) {
   const textDiv = document.createElement('div');
   mainDiv.classList.add('searched-div');
   // Cria os elementos para colocar como filhos das divs acima:
-  // const img = document.createElement('img');
-  // img.src = image_url;
   const nameText = document.createElement('p');
+  nameText.className = 'name__character'
   const listOfAnimes = anime.map((el) => `<a href='${el.url}'><p class='animes-list-character'> ${el.name}</p></a>`);
   const listOfManga = manga.map((el) => `<a href='${el.url}'><p class='manga-list-character'> ${el.name}</p></a>`);
   nameText.innerHTML = `<p>Nome: ${name}</p>\n
@@ -129,7 +114,7 @@ function characterItem ({ image_url, name, anime, manga }) {
   <br>
   <p class='mangas-p-tag'>Mangas:</p> ${listOfManga}`;
   // Faz o append child dos elementos nas divs:
-  divImg.appendChild(img);
+  divImg.appendChild(createStreamingElement('image__character', image_url));
   textDiv.appendChild(nameText);
   // Faz o append das divs na div principal (mainDiv):
   mainDiv.appendChild(divImg);
@@ -140,54 +125,31 @@ function characterItem ({ image_url, name, anime, manga }) {
 // Função para criar os cards, caso seja selecionado, no dropdown, qualquer outra opção diferente de 'Personagens':
 function searchedItems ({ title, image_url, synopsis, score, start_date, episodes, url}) {
   const main = document.querySelector('main');
-  // Cria divs para colocar como filhos da main:
   const mainDiv = document.createElement('div');
   mainDiv.classList.add('searched-div');
   const divImg = document.createElement('div');
   const textDiv = document.createElement('div');
-  // Cria elementos para ser filhos das divs acima:
-  // const img = document.createElement('img');
-  // img.src = image_url;
-  const synopsisText = document.createElement('p');
-  synopsisText.innerText = synopsis;
-  const titleText = document.createElement('p');
-  titleText.innerHTML = `<a href='${url}'><p class='anime-card-title'>${title}</p><a>`;
-  const scoreText = document.createElement('p');
-  scoreText.innerText = `Nota média: ${score}`;
-  const startDate = document.createElement('p');
-  startDate.innerText = `Data de Lançamento: ${start_date.split('T')[0]}`;
-  const episodesOfAnime = document.createElement('p');
-  episodesOfAnime.innerText = `Episódios: ${episodes}`;
-  // Faz o append child dos elementos criados acima:
+
+
+  const scoreText = `Nota média: ${score}`;
+  const startDate = `Data de Lançamento: ${start_date.split('T')[0]}`;
+  const episode = `Episódios: ${episodes}`;
+
   divImg.appendChild(createStreamingElement('image__search', image_url));
-  textDiv.appendChild(titleText);
-  textDiv.appendChild(synopsisText);
-  textDiv.appendChild(startDate);
-  textDiv.appendChild(episodesOfAnime);
-  textDiv.appendChild(scoreText);
-  //Faz o append child das divs com os elementos:
+  textDiv.appendChild(createCustomElement('p', 'item__title', title));
+  textDiv.appendChild(createCustomElement('p', 'item__synopsis', synopsis));
+  textDiv.appendChild(createCustomElement('p', 'item__startdate', startDate));
+  textDiv.appendChild(createCustomElement('p', 'item__episode', episode));
+  textDiv.appendChild(createCustomElement('p', 'item__score', scoreText));
+
   mainDiv.appendChild(divImg);
   mainDiv.appendChild(textDiv);
-  // Faz o append child das 2 principais divs na main
   main.appendChild(mainDiv);
 }
 
 const messageError = (error) => console.log(error.message);
 
-async function getCharacters(name) {
-  const url = `https://api.jikan.moe/v3/search/character?q=${name}&page=1`;
 
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    return data.results.forEach((element) => {
-      const anime = element;
-      characterItem(anime);
-    });
-  } catch (error) {
-    messageError(error);
-  }
-}
 
 async function getSearchAnimeOrManga(type, name) {
   const url = `https://api.jikan.moe/v3/search/${type}?q=${name}&page=1`;
@@ -197,6 +159,7 @@ async function getSearchAnimeOrManga(type, name) {
     const data = await response.json();
     return data.results.forEach((element) => {
       const anime = element;
+      if(type === 'character') return characterItem(anime);
       searchedItems(anime);
     });
   } catch (error) {
@@ -216,6 +179,24 @@ async function getAnimeOrMangaTop(type, subtype, top) {
     messageError(error);
   }
 }
+
+// Event listener do botão de pesquisa:
+buttonSearch.addEventListener('click', () => {
+  const main = document.querySelector('main');
+  // Deixa a main vazia:
+  main.innerHTML = '';
+  /* 
+  Pega o valor do input e chama a função que irá fazer os cards. Neste caso pega pelo 'selectedDropDown' aquele valor que está selecionado na lista do dropdown e já passa o seu Id.Se o elemento selecionado tiver um id = 'characters', chamará a função getCharacters(), caso contrário chamará a função getNameAnimeOrManga():
+  */
+  const inputValue = inputSearch.value;
+  const selectedDropDown = document.querySelector('.active-item').id;
+  console.log(inputValue);
+  console.log(selectedDropDown);
+  if (selectedDropDown === 'character') getSearchAnimeOrManga('character', inputValue);
+  
+  getSearchAnimeOrManga(selectedDropDown, inputValue);
+});
+
 
 
 window.onload = () => {

@@ -276,12 +276,6 @@ body {
   font-size: 12px;
   font-style: italic;
 }
- 
-.searched-div {
-  display: flex;
-  flex-flow: row;
-  height: fit-content;
-}
 
 .animes-list-character {
   display: inline;
@@ -319,6 +313,33 @@ body {
 
 .footer p {
   margin: 0;
+}
+
+/* SEARCHED ANIME-MANGA */
+.main .searched-div {
+  display: flex;
+  width: 92%;
+  flex-flow: row;
+  height: fit-content;
+  background: rgb(32, 32, 36);
+  font-size: 0.9em;
+  margin: 20px;
+  border-radius: 3px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.637);
+}
+
+.main .image__search {
+  width: 160px;
+  border-radius: 3px 0 0 3px;
+}
+
+.main .font-weight {
+  font-weight: bold;
+}
+
+.main .text-infos {
+  flex-grow: 1;
+  padding: 10px 10px 0 10px;
 }
 
 @media screen and (max-width: 800px) {

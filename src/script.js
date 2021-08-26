@@ -48,14 +48,14 @@ function getInfosApis(object, type) {
 
 function createCustomElement(element, className, innerText, url) {
   if (!url) {
- const e = document.createElement(element);
-  e.innerText = innerText; 
-  e.className = className;
-  return e;
-} 
+    const e = document.createElement(element);
+    e.innerText = innerText; 
+    e.className = className;
+    return e;
+  }
   const a = document.createElement('a');
   a.href = url;
-  a.innerHTML = `<p class='${className}'>${innerText}</p>`;
+  a.innerHTML = `<h3 class='${className}'>${innerText}</h3>`;
   return a;
 }
 
@@ -138,6 +138,16 @@ function createVolumeText(volumes) {
   if (volumes === 0) return 'Volumes: -';
   return `Volumes: ${volumes}`;
 }
+
+function validatedMangaOrAnime(episodes, textDiv, volumes) {
+  if (!episodes) { 
+    return textDiv
+    .appendChild(createCustomElement('p', 'item__volume', createVolumeText(volumes))); 
+  }
+  return textDiv
+  .appendChild(createCustomElement('p', 'item__episode', createEpisodesText(episodes)));
+}
+
 // Função para criar os cards, caso seja selecionado, no dropdown, qualquer outra opção diferente de 'Personagens':
 function searchedItems({ title, image_url, synopsis, score, start_date, episodes, volumes, url }) {
   const main = document.querySelector('main');
@@ -146,17 +156,15 @@ function searchedItems({ title, image_url, synopsis, score, start_date, episodes
   const divImg = document.createElement('div');
   const textDiv = document.createElement('div');
 
+  textDiv.classList.add('text-infos');
+
   divImg.appendChild(createStreamingElement('image__search', image_url));
-  textDiv.appendChild(createCustomElement('p', 'item__title', title, url));
+  textDiv.appendChild(createCustomElement('h3', 'item__title', title, url));
   textDiv.appendChild(createCustomElement('p', 'item__synopsis', synopsis));
   textDiv.appendChild(createCustomElement('p', 'item__startdate', createStartDateText(start_date)));
-  if (!episodes) { 
-    textDiv.appendChild(createCustomElement('p', 'item__volume', createVolumeText(volumes))); 
-  } else {
-    textDiv.appendChild(createCustomElement('p', 'item__episode', createEpisodesText(episodes)));
-  }
-  textDiv.appendChild(createCustomElement('p', 'item__score', createTextScore(score)));
+  validatedMangaOrAnime(episodes, textDiv, volumes);
 
+  textDiv.appendChild(createCustomElement('p', 'item__score', createTextScore(score)));
   mainDiv.appendChild(divImg);
   mainDiv.appendChild(textDiv);
   main.appendChild(mainDiv);
@@ -203,6 +211,7 @@ buttonSearch.addEventListener('click', () => {
   const main = document.querySelector('main');
   // Deixa a main vazia:
   main.innerHTML = '';
+  main.style.marginTop = '75px';
   /* 
   Pega o valor do input e chama a função que irá fazer os cards. Neste caso pega pelo 'selectedDropDown' aquele valor que está selecionado na lista do dropdown e já passa o seu Id.Se o elemento selecionado tiver um id = 'characters', chamará a função getCharacters(), caso contrário chamará a função getNameAnimeOrManga():
   */

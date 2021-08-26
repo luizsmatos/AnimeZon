@@ -248,11 +248,13 @@ body {
 .item__list {
  display: flex;
  padding: 3px;
+ margin: 10px 0;
 }
 
 .item__rank {
   font-size: 22px;
   color: var(--primary-purple);
+  display: none;
 }
 
 .top__img {

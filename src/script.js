@@ -1,11 +1,9 @@
-const body = document.querySelector('body');
-const mainCarousel = document.querySelector('.main-carousel');
-const mainContent = document.querySelector('.main-content');
+/* eslint-disable camelcase */
 const animeContent = document.querySelector('#carouselAnime');
 const mangaContent = document.querySelector('#carouselManga');
-const topAiring = document.querySelector('#top-airing')
-const topUpcoming = document.querySelector('#top-upcoming')
-const topMost = document.querySelector('#top-most')
+const topAiring = document.querySelector('#top-airing');
+const topUpcoming = document.querySelector('#top-upcoming');
+const topMost = document.querySelector('#top-most');
 const buttonSearch = document.querySelector('.button-search');
 const inputSearch = document.querySelector('.input-search');
 
@@ -33,22 +31,20 @@ function createStreamingElement(className, product) {
   return image;
 }
 
-
 function getInfosApis(object, type) {
   const infos = object.top.map((element) => element.image_url);
-    if(type === 'anime') {
+    if (type === 'anime') {
       return infos.forEach((product) => {
         animeContent.appendChild(createStreamingElement('item', product));
       });
     }
 
-    if(type === 'manga') {
+    if (type === 'manga') {
       return infos.forEach((product) => {
         mangaContent.appendChild(createStreamingElement('item', product));
       });
     }
 }
-
 
 function createCustomElement(element, className, innerText) {
   const e = document.createElement(element);
@@ -60,22 +56,22 @@ function createCustomElement(element, className, innerText) {
 function createItemElement({ rank, title, image_url, type, start_date, score }, top) {
   const scoreTXT = (score === 0) ? 'N/A' : score;
   const startDate = (start_date === null) ? 'N/A' : start_date;
-  const lis = document.createElement('li')
+  const lis = document.createElement('li');
   const divInfos = document.createElement('div');
-  divInfos.className = 'item__infos'
+  divInfos.className = 'item__infos';
   
-  lis.classList = 'item__list'
+  lis.classList = 'item__list';
   lis.appendChild(createCustomElement('span', 'item__rank', rank));
   lis.appendChild(createStreamingElement('top__img', image_url));
 
-  divInfos.appendChild(createCustomElement('h3', 'item__title', title))
+  divInfos.appendChild(createCustomElement('h3', 'item__title', title));
   divInfos.appendChild(
-    createCustomElement('span','infos', `${type}, ${startDate}, Score: ${scoreTXT}`))
-  lis.appendChild(divInfos)
+    createCustomElement('span', 'infos', `${type}, ${startDate}, Score: ${scoreTXT}`),
+);
+  lis.appendChild(divInfos);
 
-  return top.appendChild(lis)
+  return top.appendChild(lis);
 }
-
 
 function getInfosTops(object, top) {
   const infos = object.top.map(({ rank, title, image_url, type, start_date, score }) => ({
@@ -86,18 +82,16 @@ function getInfosTops(object, top) {
     start_date,
     score,
 
-  }))
+  }));
   return infos.forEach((item, index) => {
-
-    if(index < 5) {
-      createItemElement(item, top)
+    if (index < 5) {
+      createItemElement(item, top);
     }
-  })
+  });
 }
 
-
 // Função para criar a lista de cards, caso seja selecionado 'Personagem' no dropdown:
-function characterItem ({ image_url, name, anime, manga }) {
+function characterItem({ image_url, name, anime, manga }) {
   const main = document.querySelector('main');
   // Cria as divs para colocar como filhos da main:
   const mainDiv = document.createElement('div');
@@ -106,13 +100,13 @@ function characterItem ({ image_url, name, anime, manga }) {
   mainDiv.classList.add('searched-div');
   // Cria os elementos para colocar como filhos das divs acima:
   const nameText = document.createElement('p');
-  nameText.className = 'name__character'
-  const listOfAnimes = anime.map((el) => `<a href='${el.url}'><p class='animes-list-character'> ${el.name}</p></a>`);
-  const listOfManga = manga.map((el) => `<a href='${el.url}'><p class='manga-list-character'> ${el.name}</p></a>`);
-  nameText.innerHTML = `<p>Nome: ${name}</p>\n
-  <p class='animes-p-tag'>Animes:</p> ${listOfAnimes}
-  <br>
-  <p class='mangas-p-tag'>Mangas:</p> ${listOfManga}`;
+  nameText.className = 'name__character';
+  const listOfAnimes = anime.map((el) => 
+  `<a href='${el.url}'><p class='animes-list-character'> ${el.name}</p></a>`);
+  const listOfManga = manga.map((el) => 
+  `<a href='${el.url}'><p class='manga-list-character'> ${el.name}</p></a>`);
+  nameText.innerHTML = `<p>Nome: ${name}</p>\n <p class='animes-p-tag'>Animes:</p> ${listOfAnimes}
+  <br> <p class='mangas-p-tag'>Mangas:</p> ${listOfManga}`;
   // Faz o append child dos elementos nas divs:
   divImg.appendChild(createStreamingElement('image__character', image_url));
   textDiv.appendChild(nameText);
@@ -123,13 +117,12 @@ function characterItem ({ image_url, name, anime, manga }) {
 }
 
 // Função para criar os cards, caso seja selecionado, no dropdown, qualquer outra opção diferente de 'Personagens':
-function searchedItems ({ title, image_url, synopsis, score, start_date, episodes, url}) {
+function searchedItems({ title, image_url, synopsis, score, start_date, episodes }) {
   const main = document.querySelector('main');
   const mainDiv = document.createElement('div');
   mainDiv.classList.add('searched-div');
   const divImg = document.createElement('div');
   const textDiv = document.createElement('div');
-
 
   const scoreText = `Nota média: ${score}`;
   const startDate = `Data de Lançamento: ${start_date.split('T')[0]}`;
@@ -149,8 +142,6 @@ function searchedItems ({ title, image_url, synopsis, score, start_date, episode
 
 const messageError = (error) => console.log(error.message);
 
-
-
 async function getSearchAnimeOrManga(type, name) {
   const url = `https://api.jikan.moe/v3/search/${type}?q=${name}&page=1`;
 
@@ -159,7 +150,7 @@ async function getSearchAnimeOrManga(type, name) {
     const data = await response.json();
     return data.results.forEach((element) => {
       const anime = element;
-      if(type === 'character') return characterItem(anime);
+      if (type === 'character') return characterItem(anime);
       searchedItems(anime);
     });
   } catch (error) {
@@ -172,9 +163,9 @@ async function getAnimeOrMangaTop(type, subtype, top) {
 
   try {
     const response = await fetch(url);
-    const data = await response.json()
+    const data = await response.json();
     if (subtype !== 'favorite') return getInfosTops(data, top);
-    getInfosApis(data, type)
+    getInfosApis(data, type);
   } catch (error) {
     messageError(error);
   }
@@ -197,16 +188,13 @@ buttonSearch.addEventListener('click', () => {
   getSearchAnimeOrManga(selectedDropDown, inputValue);
 });
 
-
-
 window.onload = () => {
   getAnimeOrMangaTop('anime', 'favorite');
   getAnimeOrMangaTop('manga', 'favorite');
-  getAnimeOrMangaTop('anime', 'airing', topAiring)
-  getAnimeOrMangaTop('anime', 'upcoming', topUpcoming)
-  getAnimeOrMangaTop('anime', 'bypopularity', topMost)
+  getAnimeOrMangaTop('anime', 'airing', topAiring);
+  getAnimeOrMangaTop('anime', 'upcoming', topUpcoming);
+  getAnimeOrMangaTop('anime', 'bypopularity', topMost);
 };
-
 
 // ENDPOINTS:
 // top 50 anime = 'https://api.jikan.moe/v3/top/anime/1/favorite'
@@ -215,4 +203,3 @@ window.onload = () => {
 // top upcoming = https://api.jikan.moe/v3/top/anime/1/upcoming
 // top most = https://api.jikan.moe/v3/top/anime/1/bypopularity
 // search = https://api.jikan.moe/v3/search/{type = anime ou manga}?q=${nome}&page=1'
-

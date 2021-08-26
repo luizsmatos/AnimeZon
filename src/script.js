@@ -208,3 +208,11 @@ window.onload = () => {
 // top upcoming = https://api.jikan.moe/v3/top/anime/1/upcoming
 // top most = https://api.jikan.moe/v3/top/anime/1/bypopularity
 // search = https://api.jikan.moe/v3/search/{type = anime ou manga}?q=${nome}&page=1'
+
+module.exports = { 
+  getInfosApis,
+  getInfosTops,
+  characterItem,
+  getSearchAnimeOrManga,
+  getAnimeOrMangaTop,
+ };

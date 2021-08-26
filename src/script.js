@@ -24,26 +24,25 @@ buttonLeft[1].onclick = () => {
   mangaContent.scrollLeft -= 500;
 };
 
-function createStreamingElement(product) {
+function createStreamingElement(className, product) {
   const image = document.createElement('img');
-  image.classList = 'item';
-  image.setAttribute('src', product.image);
+  image.classList = className;
+  image.setAttribute('src', product);
   return image;
 }
 
+
 function getInfosApis(object, type) {
-  const infos = object.top.map((element) => ({
-     image: element.image_url,
-    }));
+  const infos = object.top.map((element) => element.image_url);
     if(type === 'anime') {
       return infos.forEach((product) => {
-        animeContent.appendChild(createStreamingElement(product));
+        animeContent.appendChild(createStreamingElement('item', product));
       });
     }
 
     if(type === 'manga') {
       return infos.forEach((product) => {
-        mangaContent.appendChild(createStreamingElement(product));
+        mangaContent.appendChild(createStreamingElement('item', product));
       });
     }
 }
@@ -57,17 +56,14 @@ function createCustomElement(element, className, innerText) {
   return e;
 }
 
-function createItemElement(item) {
-  const { rank, title, image_url, type, start_date, score } = item;
-
-  const ul = document.createElement('ul')
+function createItemElement({ rank, title, image_url, type, start_date, score }) {
   const lis = document.createElement('li')
   const divInfos = document.createElement('div');
+
   
   lis.classList = 'item-list'
   lis.appendChild(createCustomElement('span', 'item__rank', rank));
-  lis.appendChild(
-    createCustomElement('p', 'item_img', 'test'));
+  lis.appendChild(createStreamingElement('top-img', image_url));
   divInfos.appendChild(createCustomElement('h3', 'item__title', title))
   divInfos.appendChild(
     createCustomElement('span','item__infos', `${type}, ${start_date}, Score: ${score}`))
@@ -90,7 +86,6 @@ function getInfosTops(object) {
   return infos.forEach((item, index) => {
 
     if(index < 5) {
-      console.log('test')
       createItemElement(item)
     }
   })

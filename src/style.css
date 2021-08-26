@@ -254,6 +254,10 @@ body {
   color: var(--primary-purple);
 }
 
+.top-img {
+  width: 30%;
+}
+
 .item-list h3 {
   font-size: 18px;
 }

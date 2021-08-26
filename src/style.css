@@ -225,76 +225,37 @@ body {
 }
 
 .fas-carousel {
-  font-size: 40px;
-  color: var(--primary-white-font);
+  font-size: 70px;
 }
 
-/* NEW - ASIDE RIGHT */
-.news-content {
-  width: 30%;
-  margin: 55px 0 0 0;
+.searched-div {
   display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
+  flex-flow: row;
+  height: fit-content;
 }
 
-.news {
-  width: 90%;
-  background: blue;
-  margin-bottom: 10px;
-  padding: 25px;
-  color: var(--primary-white-font);
+.animes-list-character {
+  display: inline;
+  color: black;
 }
 
-.footer {
-  margin-top: 1rem;
-  background-color: rgb(12, 11, 11);
-  height: 50vh;
+.animes-list-character:hover {
+  color: rgb(115, 66, 228);
 }
 
-@media screen and (max-width: 600px) {
+.manga-list-character {
+  display: inline;
+  color: black;
+}
 
-  .content-left {
-    width: 100%;
-  }
+.manga-list-character:hover {
+  color: rgb(115, 66, 228);
+}
 
-  .main-content {
-    flex-direction: column;
-    width: 100%;
-  }
+.anime-card-title {
+  color: black;
+}
 
-  .news-content {
-    width: auto;
-  }
-
-  .input-group>.form-control, .input-group>.form-select {
-    width: 25%;
-  }
-
-  .sign-up-desktop {
-    display: none;
-  }
-
-  .header {
-    height: 60px;
-    padding: 0;
-  }
-
-  .aside-menu {
-    height: calc(100vh - 8%);
-    top: 60px;
-  }
-  
-  .header-container.active .aside-menu {
-    visibility: visible;
-    width: 100%;
-  }
-
-  .title {
-    display: none;
-  }
-
-  .search-container {
-    padding: 30px;
-  }
+.anime-card-title:hover {
+  color: rgb(115, 66, 228);
 }

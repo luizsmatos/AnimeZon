@@ -45,6 +45,20 @@ function getInfosApis(object, type) {
     }
 }
 
+function getInfosTops(object, type) {
+  const infos = object.top.map(({ title, image_url, type, start_date, score }) => ({
+    title,
+    image_url,
+    type,
+    start_date,
+    score,
+
+  }))
+  return infos.forEach(({ title, image_url, type, start_date, score }) => {
+    
+  })
+}
+
 const messageError = (error) => console.log(error.message);
 
 async function getNameAnimeOrManga(type, name) {
@@ -61,14 +75,14 @@ async function getNameAnimeOrManga(type, name) {
   }
 }
 
-async function fetchApiAnime() {
-  const url = "https://api.jikan.moe/v3/top/anime/1/favorite";
+async function fetchApiAnimeOrManga(type, subtype) {
+  const url = `https://api.jikan.moe/v3/top/${type}/1/${subtype}`;
 
   try {
     const response = await fetch(url);
-
     const data = await response.json()
-    getInfosApis(data, 'anime');
+    if (subtype !== 'favorite') return getInfosTops(data, type);
+    getInfosApis(data, type)
   } catch (error) {
     messageError(error);
   }
@@ -87,9 +101,11 @@ async function fetchApiManga() {
 }
 
 window.onload = () => {
-  fetchApiAnime();
-  fetchApiManga();
+  fetchApiAnimeOrManga('anime', 'favorite');
+  fetchApiAnimeOrManga('manga', 'favorite');
+  fetchApiAnimeOrManga('anime', 'airing')
 };
+
 
 // ENDPOINTS:
 // top 50 anime = 'https://api.jikan.moe/v3/top/anime/1/favorite'

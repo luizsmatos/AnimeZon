@@ -243,9 +243,8 @@ body {
   color: var(--primary-white-font);
 }
 
-.item-list {
+.item__list {
  display: flex;
- justify-content: space-between;
  padding: 3px;
 }
 
@@ -254,12 +253,24 @@ body {
   color: var(--primary-purple);
 }
 
-.top-img {
-  width: 30%;
+.top__img {
+  width: 60px;
+  height: 80px;
+  margin-left: 5px;
 }
 
-.item-list h3 {
-  font-size: 18px;
+.item__list h3 {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.item__infos {
+  margin-left: 10px;
+}
+
+.infos  {
+  font-size: 12px;
+  font-style: italic;
 }
 
 .footer {

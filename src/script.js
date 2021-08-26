@@ -5,7 +5,7 @@ const animeContent = document.querySelector('#carouselAnime');
 const mangaContent = document.querySelector('#carouselManga');
 const topAiring = document.querySelector('#top-airing')
 const topUpcoming = document.querySelector('#top-upcoming')
-const topMost = document.querySelector('#top-Most')
+const topMost = document.querySelector('#top-most')
 
 const buttonRight = document.querySelectorAll('.right-button');
 const buttonLeft = document.querySelectorAll('.left-button');
@@ -56,24 +56,27 @@ function createCustomElement(element, className, innerText) {
   return e;
 }
 
-function createItemElement({ rank, title, image_url, type, start_date, score }) {
+function createItemElement({ rank, title, image_url, type, start_date, score }, top) {
+  const scoreTXT = (score === 0) ? 'N/A' : score;
+  const startDate = (start_date === null) ? 'N/A' : start_date;
   const lis = document.createElement('li')
   const divInfos = document.createElement('div');
-
+  divInfos.className = 'item__infos'
   
-  lis.classList = 'item-list'
+  lis.classList = 'item__list'
   lis.appendChild(createCustomElement('span', 'item__rank', rank));
-  lis.appendChild(createStreamingElement('top-img', image_url));
+  lis.appendChild(createStreamingElement('top__img', image_url));
+
   divInfos.appendChild(createCustomElement('h3', 'item__title', title))
   divInfos.appendChild(
-    createCustomElement('span','item__infos', `${type}, ${start_date}, Score: ${score}`))
+    createCustomElement('span','infos', `${type}, ${startDate}, Score: ${scoreTXT}`))
   lis.appendChild(divInfos)
 
-  return topAiring.appendChild(lis)
+  return top.appendChild(lis)
 }
 
 
-function getInfosTops(object) {
+function getInfosTops(object, top) {
   const infos = object.top.map(({ rank, title, image_url, type, start_date, score }) => ({
     rank,
     title,
@@ -86,7 +89,7 @@ function getInfosTops(object) {
   return infos.forEach((item, index) => {
 
     if(index < 5) {
-      createItemElement(item)
+      createItemElement(item, top)
     }
   })
 }
@@ -107,13 +110,13 @@ async function getSearchAnimeOrManga(type, name) {
   }
 }
 
-async function getAnimeOrMangaTop(type, subtype) {
+async function getAnimeOrMangaTop(type, subtype, top) {
   const url = `https://api.jikan.moe/v3/top/${type}/1/${subtype}`;
 
   try {
     const response = await fetch(url);
     const data = await response.json()
-    if (subtype !== 'favorite') return getInfosTops(data, type);
+    if (subtype !== 'favorite') return getInfosTops(data, top);
     getInfosApis(data, type)
   } catch (error) {
     messageError(error);
@@ -124,7 +127,9 @@ async function getAnimeOrMangaTop(type, subtype) {
 window.onload = () => {
   getAnimeOrMangaTop('anime', 'favorite');
   getAnimeOrMangaTop('manga', 'favorite');
-  getAnimeOrMangaTop('anime', 'airing')
+  getAnimeOrMangaTop('anime', 'airing', topAiring)
+  getAnimeOrMangaTop('anime', 'upcoming', topUpcoming)
+  getAnimeOrMangaTop('anime', 'bypopularity', topMost)
 };
 
 
@@ -132,6 +137,6 @@ window.onload = () => {
 // top 50 anime = 'https://api.jikan.moe/v3/top/anime/1/favorite'
 // top 50 manga = 'https://api.jikan.moe/v3/top/manga/1/favorite'
 // top airing = https://api.jikan.moe/v3/top/anime/1/airing
-// top 
-// top 
+// top upcoming = https://api.jikan.moe/v3/top/anime/1/upcoming
+// top most = https://api.jikan.moe/v3/top/anime/1/bypopularity
 // search = https://api.jikan.moe/v3/search/{type = anime ou manga}?q=${nome}&page=1'

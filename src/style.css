@@ -54,7 +54,7 @@ body {
   color: var(--primary-white-font);
 }
 
-.title {
+.logo {
   font-size: 1.2em;
   margin-top: 10px;
 }
@@ -90,8 +90,12 @@ body {
   padding: 0 10px;
 }
 
+.input-group {
+  flex-wrap: nowrap;
+}
+
 .input-group>.form-control, .input-group>.form-select {
-  width: 50%;
+  width: 70%;
 }
 
 .button-search {
@@ -308,4 +312,55 @@ body {
 
 .anime-card-title:hover {
   color: rgb(115, 66, 228);
+}
+
+@media screen and (max-width: 600px) {
+
+  .content-left {
+    width: 100%;
+  }
+
+  .main-content {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .news {
+    width: 100%;
+  }
+
+  .news-content {
+    flex-direction: column;
+  }
+
+  .input-group>.form-control, .input-group>.form-select {
+    width: 25%;
+  }
+
+  .sign-up-desktop {
+    display: none;
+  }
+
+  .header {
+    height: 60px;
+    padding: 0;
+  }
+
+  .aside-menu {
+    height: calc(100vh - 8%);
+    top: 60px;
+  }
+  
+  .header-container.active .aside-menu {
+    visibility: visible;
+    width: 100%;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .search-container {
+    padding: 30px;
+  }
 }

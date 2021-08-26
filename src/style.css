@@ -274,12 +274,6 @@ body {
   font-size: 12px;
   font-style: italic;
 }
-
-.footer {
-  margin-top: 1rem;
-  background-color: rgb(12, 11, 11);
-  height: 50vh;
-}
  
 .searched-div {
   display: flex;
@@ -311,6 +305,18 @@ body {
 
 .anime-card-title:hover {
   color: rgb(115, 66, 228);
+}
+
+.footer {
+  background: rgb(32, 32, 36);
+  padding: 10px;
+  border-top: 1px solid var(--primary-white-font);
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
 }
 
 @media screen and (max-width: 600px) {

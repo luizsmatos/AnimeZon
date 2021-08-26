@@ -47,7 +47,7 @@ body {
   top: 0;
   z-index: 100;
   background-color: var(--primary-black);
-  height: 10%;
+  height: 8%;
   padding: 15px;
   align-items: center;
   justify-content: space-between;
@@ -171,15 +171,6 @@ body {
   width: 100%;
 }
 
-.main-content {
-  width: 100%;
-  display: flex;
-}
-
-.content-left {
-  width: 70%;
-}
-
 .img-carousel {
   width: 100%;
   height: 500px;
@@ -189,6 +180,7 @@ body {
 .container-anime {
   padding: 20px 0;
 }
+
 .title-contents {
   color: var(--primary-purple);
   font-weight: 900;
@@ -199,14 +191,18 @@ body {
   display: flex;
   flex-flow: column nowrap;
   gap: 3rem;
-  padding: 2rem 0;
+  padding: 2rem 0; 
 }
 
 .anime-content, .manga-content {
   display: flex;
+  padding: 10px 0;
+}
+
+#carouselAnime, #carouselManga {
+  display: flex;
   overflow: hidden;
   scroll-behavior: smooth;
-  padding: 10px 0;
 }
 
 .item {
@@ -226,28 +222,58 @@ body {
 .anime-content button, .manga-content button{
   border: none;
   background-color: transparent;
+  opacity: 0.1;
 }
 
+
 .fas-carousel {
-  font-size: 40px;
-  color: var(--primary-white-font);
+  font-size: 70px;
 }
 
 /* NEW - ASIDE RIGHT */
 .news-content {
-  width: 30%;
   margin: 55px 0 0 0;
   display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
+  justify-content: space-around;
 }
 
 .news {
-  width: 90%;
-  background: blue;
+  width: 32%;
+  height: 550px;
+  background-color: var(--primary-black);
   margin-bottom: 10px;
   padding: 25px;
   color: var(--primary-white-font);
+}
+
+.item__list {
+ display: flex;
+ padding: 3px;
+}
+
+.item__rank {
+  font-size: 22px;
+  color: var(--primary-purple);
+}
+
+.top__img {
+  width: 60px;
+  height: 80px;
+  margin-left: 5px;
+}
+
+.item__list h3 {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.item__infos {
+  margin-left: 10px;
+}
+
+.infos  {
+  font-size: 12px;
+  font-style: italic;
 }
 
 .footer {
@@ -255,50 +281,35 @@ body {
   background-color: rgb(12, 11, 11);
   height: 50vh;
 }
+ 
+.searched-div {
+  display: flex;
+  flex-flow: row;
+  height: fit-content;
+}
 
-@media screen and (max-width: 600px) {
+.animes-list-character {
+  display: inline;
+  color: black;
+}
 
-  .content-left {
-    width: 100%;
-  }
+.animes-list-character:hover {
+  color: rgb(115, 66, 228);
+}
 
-  .main-content {
-    flex-direction: column;
-    width: 100%;
-  }
+.manga-list-character {
+  display: inline;
+  color: black;
+}
 
-  .news-content {
-    width: auto;
-  }
+.manga-list-character:hover {
+  color: rgb(115, 66, 228);
+}
 
-  .input-group>.form-control, .input-group>.form-select {
-    width: 25%;
-  }
+.anime-card-title {
+  color: black;
+}
 
-  .sign-up-desktop {
-    display: none;
-  }
-
-  .header {
-    height: 60px;
-    padding: 0;
-  }
-
-  .aside-menu {
-    height: calc(100vh - 8%);
-    top: 60px;
-  }
-  
-  .header-container.active .aside-menu {
-    visibility: visible;
-    width: 100%;
-  }
-
-  .title {
-    display: none;
-  }
-
-  .search-container {
-    padding: 30px;
-  }
+.anime-card-title:hover {
+  color: rgb(115, 66, 228);
 }

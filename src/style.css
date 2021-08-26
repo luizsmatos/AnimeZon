@@ -6,12 +6,16 @@
   --primary-white-font: rgb(255, 255, 230);
 }
 
-
 * {
   padding: 0;
   margin: 0;
   font-family: sans-serif;
   box-sizing: border-box;
+}
+
+body {
+  background: var(--primary-black);
+  color: var(--primary-white-font);
 }
 
 a {
@@ -23,19 +27,36 @@ a:hover {
   color: var(--primary-white-font);
 }
 
+ul {
+  list-style: none;
+}
+
 button {
   border: unset;
   cursor: pointer;
 }
 
+body {
+  background-color: var(--primary-black);
+}
+
 .header {
   display: flex;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
   background-color: var(--primary-black);
   height: 10%;
   padding: 15px;
   align-items: center;
   justify-content: space-between;
   color: var(--primary-white-font);
+}
+
+.title {
+  font-size: 1.2em;
+  margin-top: 10px;
 }
 
 .header-container {
@@ -70,19 +91,25 @@ button {
 }
 
 .input-group>.form-control, .input-group>.form-select {
-  width: 260px;
+  width: 50%;
 }
 
 .button-search {
+  border-radius: 0 10px 10px 0;
+  padding: 3px;
+  width: 10%;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+  padding: 10px;
+  border-radius: 0 10px 10px 0;
   padding: 3px;
+  width: 10%;
   background-color: white;
 }
 
 #btn-hamburguer {
   display: flex;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
   border: none;
   background: none;
@@ -90,6 +117,7 @@ button {
 
 #hamburguer-menu {
   width: 20px;
+  margin-top: -5px;
   color: #D7D7D7;
 }
 
@@ -113,9 +141,39 @@ button {
   margin-top: -2px;
 }
 
+.aside-menu {
+  display: flex;
+  visibility: hidden;
+  position: absolute;
+  gap: 9rem;
+  background-color: var(--primary-black);
+  top: 65px;
+  left: 0;
+  width: 0;
+  height: calc(100vh - 10%);
+  z-index: 90;
+  transition: 0.5s;
+  overflow: auto;
+}
+
+.header-container.active .aside-menu {
+  visibility: visible;
+  width: 35%;
+}
+
 .main-carousel {
+  margin-top: 65px;
   margin-bottom: 10px;
   width: 100%;
+}
+
+.main-content {
+  width: 100%;
+  display: flex;
+}
+
+.content-left {
+  width: 70%;
 }
 
 .img-carousel {
@@ -124,23 +182,41 @@ button {
   object-fit: cover;
 }
 
+.container-anime {
+  padding: 20px 0;
+}
+.title-contents {
+  color: var(--primary-purple);
+  font-weight: 900;
+  margin: 10px 2rem;
+}
 
 .content {
   display: flex;
   flex-flow: column nowrap;
-  padding: 5px;
+  gap: 3rem;
+  padding: 2rem 0;
 }
 
 .anime-content, .manga-content {
   display: flex;
   overflow: hidden;
+  scroll-behavior: smooth;
+  padding: 10px 0;
 }
 
 .item {
   cursor: pointer;
+  width: 130px;
+  height: 210px;
   margin: 5px;
-  border-radius: 10px;
+  border-radius: 5px;
   transition: 0.5s;
+}
+
+.item:hover { 
+  transition: all 0.5s ease;
+  transform: scale(1.10);
 }
 
 .anime-content button, .manga-content button{

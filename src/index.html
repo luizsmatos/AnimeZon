@@ -17,34 +17,40 @@
     <section class="header-container">
       <button id="btn-hamburguer">
         <span id="hamburguer-menu"></span>
-    </button>
-      <h3>AnimeZon</h3>
+      </button>
+    <aside class="aside-menu">
+        <ul class="ul-anime-manga">
+          <h4>Anime</h4>
+        </ul>
+        <ul class="ul-anime-manga">
+          <h4>Manga</h4>
+        </ul>
+      </aside>                            
+      <h1 class="title">AnimeZon</h1>
     </section>
-      <section class="header-container">
-          <div class="input-group search-container">
-            <button class="btn btn-outline-secondary dropdown-toggle select-dropdown" type="button" data-bs-toggle="dropdown">Todos</button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" id="all" href="#">Todos</a></li>
-              <li><a class="dropdown-item" id="anime" href="#">Anime</a></li>
-              <li><a class="dropdown-item" id="manga" href="#">Mangá</a></li>
-              <li><a class="dropdown-item" id="characters" href="#">Personagens</a></li>
-              <li><a class="dropdown-item" id="people" href="#">Pessoas</a></li>
-              <li><a class="dropdown-item" id="manga-store" href="#">Loja de Mangá</a></li>
-              <li><a class="dropdown-item" id="news" href="#">Noticias</a></li>
-              <li><a class="dropdown-item" id="feature-articles" href="#">Feature Articles</a></li>
-              <li><a class="dropdown-item" id="forum" href="#">Forum</a></li>
-              <li><a class="dropdown-item" id="club" href="#">Clube</a></li>
-            </ul>
-            <input type="text" class="form-control input-search" placeholder="Pesquise por animes, mangas e personagens">
-            <button class="button-search"><i class="fas fa-search"></i></button>
-          </div>
-        <a href="tela_login.html" target="_blank" rel="next">Entrar</a>
-      </section>
-    </header>
+    <section class="header-container">
+        <div class="input-group search-container">
+          <button class="btn btn-outline-secondary dropdown-toggle select-dropdown" type="button" data-bs-toggle="dropdown">Todos</button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" id="all" href="#">Todos</a></li>
+            <li><a class="dropdown-item" id="anime" href="#">Anime</a></li>
+            <li><a class="dropdown-item" id="manga" href="#">Mangá</a></li>
+            <li><a class="dropdown-item" id="characters" href="#">Personagens</a></li>
+            <li><a class="dropdown-item" id="people" href="#">Pessoas</a></li>
+            <li><a class="dropdown-item" id="manga-store" href="#">Loja de Mangá</a></li>
+            <li><a class="dropdown-item" id="news" href="#">Noticias</a></li>
+            <li><a class="dropdown-item" id="feature-articles" href="#">Feature Articles</a></li>
+            <li><a class="dropdown-item" id="forum" href="#">Forum</a></li>
+            <li><a class="dropdown-item" id="club" href="#">Clube</a></li>
+          </ul>
+          <input type="text" class="form-control input-search" placeholder="Pesquise por animes, mangas e personagens">
+          <button class="button-search"><i class="fas fa-search"></i></button>
+        </div>
+      <a href="tela_login.html" class="sign-up-desktop" target="_blank" rel="next">Entrar</a>
+    </section>
     <!-- CABEÇALHO -->
-    </section>
   </header>
-  <main>
+  <main class="main">
     <section class = "main-carousel">
       <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -56,8 +62,7 @@
           <div class="carousel-item active">
             <img src= "https://c4.wallpaperflare.com/wallpaper/663/947/813/oldboy-japanese-digital-art-artwork-wallpaper-preview.jpg" class="d-block img-carousel" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h5>TryFLIX</h5>
-              <p>Some representative placeholder content for the first slide.</p>
+              <h5>AnimeZon</h5>
             </div>
           </div>
           <div class="carousel-item">
@@ -86,28 +91,39 @@
       </div>
     </section>
     <section class="main-content">
-      <section class= "content">
-      <div>
-        <h3>Anime</h3>
-        <div class="anime-content">
-          <button class="left-button"><i class="fas fa-angle-left fas-carousel"></i></button>
-            <div class="anime-content" id="carouselAnime"></div>
-          <button class="right-button"><i class="fas fa-angle-right fas-carousel"></i></button>
-        </div>
-      </div>
-      <div>
-        <h3>Manga</h3>
-        <div class="manga-content">
-          <button class="left-button"><i class="fas fa-angle-left fas-carousel"></i></button>
-          <div class="manga-content" id="carouselManga"></div>
-        <button class="right-button"><i class="fas fa-angle-right fas-carousel"></i></button>
-        </div>
-      </div>
-    </section>
-    <aside class = "news-content">
-    </aside>
+      <section class="content-left">
+          <div class="container-anime">
+            <h3 class="title-contents">Anime</h3>
+            <div class="anime-content">
+              <button class="left-button"><i class="fas fa-angle-left fas-carousel"></i></button>
+                <div class="anime-content" id="carouselAnime"></div>
+              <button class="right-button"><i class="fas fa-angle-right fas-carousel"></i></button>
+            </div>
+          </div>
+          <div class="container-manga">
+            <h3 class="title-contents">Manga</h3>
+            <div class="manga-content">
+              <button class="left-button"><i class="fas fa-angle-left fas-carousel"></i></button>
+              <div class="manga-content" id="carouselManga"></div>
+            <button class="right-button"><i class="fas fa-angle-right fas-carousel"></i></button>
+            </div>
+          </div>
+      </section>
+
+      <aside class = "news-content">
+        <div class="news">Noticia 1</div>
+        <div class="news">Noticia 2</div>
+        <div class="news">Noticia 3</div>
+        <div class="news">Noticia 4</div>
+        <div class="news">Noticia 5</div>
+        <div class="news">Noticia 6</div>
+        <div class="news">Noticia 7</div>
+      </aside>
     </section>
   </main>
+  <footer class="footer">
+
+  </footer>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>

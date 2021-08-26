@@ -13,14 +13,14 @@ buttonRight[0].onclick = () => {
   animeContent.scrollLeft += 500;
 };
 buttonLeft[0].onclick = () => {
-  animeContent.scrollLeft -= 1000;
+  animeContent.scrollLeft -= 500;
 };
 
 buttonRight[1].onclick = () => {
   mangaContent.scrollLeft += 500;
 };
 buttonLeft[1].onclick = () => {
-  mangaContent.scrollLeft -= 1000;
+  mangaContent.scrollLeft -= 500;
 };
 
 function createStreamingElement(product) {
@@ -31,7 +31,6 @@ function createStreamingElement(product) {
 }
 
 function getInfosApis(object, type) {
-
   const infos = object.top.map((element) => ({
      image: element.image_url,
     }));
@@ -48,7 +47,6 @@ function getInfosApis(object, type) {
     }
 }
 
-
 // Event listener do botão de pesquisa:
 buttonSearch.addEventListener('click', () => {
   const main = document.querySelector('main');
@@ -61,7 +59,7 @@ buttonSearch.addEventListener('click', () => {
   const selectedDropDown = document.querySelector('.active-item').id;
   if (selectedDropDown === 'characters') { getCharacters(inputValue) }
   getNameAnimeOrManga(selectedDropDown, inputValue);
-})
+});
 
 async function getCharacters(name) {
   const url = `https://api.jikan.moe/v3/search/character?q=${name}&page=1`;
@@ -77,7 +75,6 @@ async function getCharacters(name) {
     messageError(error);
   }
 }
-
 
 // Função para criar a lista de cards, caso seja selecionado 'Personagem' no dropdown:
 function characterItem ({ image_url, name, anime, manga }) {
@@ -103,7 +100,6 @@ function characterItem ({ image_url, name, anime, manga }) {
   // Faz o append das divs na div principal (mainDiv):
   mainDiv.appendChild(divImg);
   mainDiv.appendChild(textDiv);
-  // Faz o append da div principal na tag main:
   main.appendChild(mainDiv);
 }
 

@@ -222,12 +222,12 @@ body {
 .anime-content button, .manga-content button{
   border: none;
   background-color: transparent;
-  opacity: 0.1;
 }
 
 
 .fas-carousel {
   font-size: 70px;
+  color: white;
 }
 
 /* NEW - ASIDE RIGHT */

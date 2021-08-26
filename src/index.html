@@ -13,6 +13,7 @@
   <title>AnimeZon</title>
 </head>
 <body>
+  <!-- CABEÇALHO -->
   <header class="header">
     <section class="header-container">
       <button id="btn-hamburguer">
@@ -26,32 +27,29 @@
           <h4>Manga</h4>
         </ul>
       </aside>                            
-      <!-- <h1 class="title">AnimeZon</h1> -->
       <img src="/images/az.png" class="logo" alt="logo" width="200px">
     </section>
     <section class="header-container">
-        <div class="input-group search-container">
-          <button class="btn btn-outline-secondary dropdown-toggle select-dropdown" type="button" data-bs-toggle="dropdown">Todos</button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" id="all" href="#">Todos</a></li>
-            <li><a class="dropdown-item" id="anime" href="#">Anime</a></li>
+      <!-- PESQUISA DE PERSONAGEM/MANGÁ -->
+      <div class="input-group search-container">
+        <button class="btn btn-outline-secondary dropdown-toggle select-dropdown" type="button" data-bs-toggle="dropdown">Todos</button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" id="anime" href="#">Anime</a></li>
             <li><a class="dropdown-item" id="manga" href="#">Mangá</a></li>
-            <li><a class="dropdown-item" id="characters" href="#">Personagens</a></li>
-            <li><a class="dropdown-item" id="people" href="#">Pessoas</a></li>
-            <li><a class="dropdown-item" id="manga-store" href="#">Loja de Mangá</a></li>
-            <li><a class="dropdown-item" id="news" href="#">Noticias</a></li>
-            <li><a class="dropdown-item" id="feature-articles" href="#">Feature Articles</a></li>
-            <li><a class="dropdown-item" id="forum" href="#">Forum</a></li>
-            <li><a class="dropdown-item" id="club" href="#">Clube</a></li>
-          </ul>
-          <input type="text" class="form-control input-search" placeholder="Pesquise por animes, mangas e personagens">
-          <button class="button-search"><i class="fas fa-search"></i></button>
-        </div>
-      <a href="tela_login.html" class="sign-up-desktop" target="_blank" rel="next">Entrar</a>
+            <li><a class="dropdown-item" id="character" href="#">Personagens</a></li>
+        </ul>
+        <input type="text" class="form-control input-search" placeholder="Pesquise por animes, mangas e personagens">
+        <button class="button-search"><i class="fas fa-search"></i></button>
+      </div>
+      <!-- //PESQUISA DE PERSONAGEM/MANGÁ -->
+      <a href="tela_login.html" class="sign-up-desktop" target="_self" rel="next">Entrar</a>
     </section>
-    <!-- CABEÇALHO -->
   </header>
+  <!-- //CABEÇALHO -->
+
+  <!-- CONTEÚDO PRINCIPAL -->
   <main class="main">
+    <!-- CAROUSEL PRINCIPAL -->
     <section class = "main-carousel">
       <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -69,15 +67,13 @@
           <div class="carousel-item">
             <img src="https://c4.wallpaperflare.com/wallpaper/295/163/719/anime-anime-boys-picture-in-picture-kimetsu-no-yaiba-kamado-tanjir%C5%8D-hd-wallpaper-preview.jpg" class="d-block img-carousel" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h5>TryFLIX</h5>
-              <p>Some representative placeholder content for the second slide.</p>
+              <h5>AnimeZon</h5>
             </div>
           </div>
           <div class="carousel-item">
             <img src="https://c4.wallpaperflare.com/wallpaper/1020/1/213/world-of-warcraft-battle-for-azeroth-video-games-warcraft-alliance-wallpaper-preview.jpg" class="d-block img-carousel" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h5>TryFLIX</h5>
-              <p>Some representative placeholder content for the third slide.</p>
+              <h5>AnimeZon</h5>      
             </div>
           </div>
         </div>
@@ -91,49 +87,60 @@
         </button>
       </div>
     </section>
+    <!-- //CAROUSEL PRINCIPAL -->
+
+    <!-- CONTEÚDO DE ANIME E MANGÁ -->
     <section class="main-content">
       <section class="content">
-          <div class="container-anime">
-            <h3 class="title-contents">Anime</h3>
-            <div class="anime-content">
-              <button class="left-button btn"><i class="fas fa-angle-left fas-carousel"></i></button>
-                <div class="anime-content" id="carouselAnime"></div>
-              <button class="right-button btn "><i class="fas fa-angle-right fas-carousel"></i></button>
-            </div>
+        <!-- CONTAINER DE ANIME -->
+        <div class="container-anime">
+          <h3 class="title-contents">Anime</h3>
+          <div class="anime-content">
+            <button class="left-button btn"><i class="fas fa-angle-left fas-carousel"></i></button>
+              <div class="anime-content" id="carouselAnime"></div>
+            <button class="right-button btn "><i class="fas fa-angle-right fas-carousel"></i></button>
           </div>
-          <div class="container-manga">
-
-            <h3 class="title-contents">Manga</h3>
-            <div class="manga-content">
-              <button class="left-button btn"><i class="fas fa-angle-left fas-carousel"></i></button>
-              <div class="manga-content" id="carouselManga"></div>
-            <button class="right-button btn"><i class="fas fa-angle-right fas-carousel"></i></button>
-            </div>
-
+        </div>
+        <!-- //CONTAINER DE ANIME -->
+        <!-- CONTAINER DE MANGÁ -->
+        <div class="container-manga">
+          <h3 class="title-contents">Manga</h3>
+          <div class="manga-content">
+            <button class="left-button btn"><i class="fas fa-angle-left fas-carousel"></i></button>
+            <div class="manga-content" id="carouselManga"></div>
+          <button class="right-button btn"><i class="fas fa-angle-right fas-carousel"></i></button>
           </div>
+        </div>
+        <!-- //CONTAINER DE MANGÁ -->
       </section>
     </section>
+    <!-- //CONTEÚDO DE ANIME E MANGÁ -->
+
+    <!-- NOTÍCIAS -->
     <section class = "news-content">
-        <div class="news" >
-          <p class="text-center text-uppercase">Top Airing Anime <i class="fas fa-medal"></i></p>
-          <hr>
-          <ul class="ul-list" id="top-airing"></ul>
-        </div>
-        <div class="news" >
-          <p class="text-center text-uppercase">Top Upcoming Anime <i class="fas fa-medal"></i></p>
-          <hr>
-          <ul class="ul-list" id="top-upcoming"></ul>
-        </div>
-        <div class="news">
-          <p class="text-center text-uppercase">Top Most Popular Anime <i class="fas fa-medal"></i></p>
-          <hr>
-          <ul class="ul-list" id="top-most"></ul>
-        </div>
+      <div class="news" >
+        <p class="text-center text-uppercase">Top Airing Anime <i class="fas fa-medal"></i></p>
+        <hr>
+        <ul class="ul-list" id="top-airing"></ul>
+      </div>
+      <div class="news" >
+        <p class="text-center text-uppercase">Top Upcoming Anime <i class="fas fa-medal"></i></p>
+        <hr>
+        <ul class="ul-list" id="top-upcoming"></ul>
+      </div>
+      <div class="news">
+        <p class="text-center text-uppercase">Top Most Popular Anime <i class="fas fa-medal"></i></p>
+        <hr>
+        <ul class="ul-list" id="top-most"></ul>
+      </div>
     </section>
+    <!-- //NOTÍCIAS -->
   </main>
+  <!-- //CONTEÚDO PRINCIPAL -->
   <footer class="footer">
 
   </footer>
+
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>

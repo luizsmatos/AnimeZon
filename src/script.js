@@ -172,8 +172,8 @@ async function getSearchAnimeOrManga(type, name) {
     const data = await response.json();
     if (type === 'anime') {
       data.results.filter((item) => item.rated !== 'Rx').forEach((element) => {
-        searchedItems(element)
-      })
+        searchedItems(element);
+      });
     }
     return data.results.forEach((element) => {
       const anime = element;
@@ -230,3 +230,11 @@ window.onload = () => {
 // top upcoming = https://api.jikan.moe/v3/top/anime/1/upcoming
 // top most = https://api.jikan.moe/v3/top/anime/1/bypopularity
 // search = https://api.jikan.moe/v3/search/{type = anime ou manga}?q=${nome}&page=1'
+
+module.exports = { 
+  getInfosApis,
+  getInfosTops,
+  characterItem,
+  getSearchAnimeOrManga,
+  getAnimeOrMangaTop,
+};

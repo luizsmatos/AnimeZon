@@ -253,6 +253,20 @@ body {
 }
 
 @media screen and (max-width: 600px) {
+
+  .content-left {
+    width: 100%;
+  }
+
+  .main-content {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .news-content {
+    width: auto;
+  }
+
   .input-group>.form-control, .input-group>.form-select {
     width: 25%;
   }

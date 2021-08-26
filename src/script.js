@@ -93,6 +93,7 @@ function getInfosTops(object, top) {
       createItemElement(item, top)
     }
   })
+}
 // Event listener do botão de pesquisa:
 buttonSearch.addEventListener('click', () => {
   const main = document.querySelector('main');
@@ -106,6 +107,7 @@ buttonSearch.addEventListener('click', () => {
   if (selectedDropDown === 'characters') { getCharacters(inputValue) }
   getNameAnimeOrManga(selectedDropDown, inputValue);
 });
+
 
 async function getCharacters(name) {
   const url = `https://api.jikan.moe/v3/search/character?q=${name}&page=1`;

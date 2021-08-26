@@ -321,7 +321,7 @@ body {
   margin: 0;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
 
   .content-left {
     width: 100%;
@@ -363,11 +363,15 @@ body {
     width: 100%;
   }
 
+  .search-container {
+    padding: 30px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+
   .logo {
     display: none;
   }
 
-  .search-container {
-    padding: 30px;
-  }
 }

@@ -148,6 +148,11 @@ async function getSearchAnimeOrManga(type, name) {
   try {
     const response = await fetch(url);
     const data = await response.json();
+    if (type === 'anime') {
+      data.results.filter((item) => item.rated !== 'Rx').forEach((element) => {
+        searchedItems(element)
+      })
+    }
     return data.results.forEach((element) => {
       const anime = element;
       if (type === 'character') return characterItem(anime);

@@ -398,8 +398,8 @@ body {
 }
 
 @media screen and (max-width: 600px) {
-  
-  .search-container {
+
+  .cancel-toggle-search {
     display: none;
   }
 
@@ -417,6 +417,30 @@ body {
   }
 
   .logo-mobile {
+    display: block;
+  }
+
+  .search-container {
+    display: none;
+  }
+
+  .search-show .search-container{
+    display: flex;
+  }
+
+  .header.search-show .logo-mobile {
+    display: none;
+  }
+
+  .search-show .toggle-search {
+    display: none;
+  }
+
+  .search-show #btn-hamburguer {
+    display: none;
+  }
+
+  .search-show .cancel-toggle-search {
     display: block;
   }
 

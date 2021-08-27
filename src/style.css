@@ -58,6 +58,10 @@ body {
   margin-top: 10px;
 }
 
+.logo-mobile {
+  display: none;
+}
+
 .header-container {
   display: flex;
   align-items: center;
@@ -159,9 +163,17 @@ body {
   overflow: auto;
 }
 
+.toggle-search {
+  display: none;
+}
+
 .header-container.active .aside-menu {
   visibility: visible;
   width: 35%;
+}
+
+.cancel-toggle-search {
+  display: none;
 }
 
 .main-carousel {
@@ -391,8 +403,59 @@ body {
 
 @media screen and (max-width: 600px) {
 
+  .cancel-toggle-search {
+    display: none;
+    border: none;
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    font-size: x-large;
+    color: white;
+  }
+
+  .toggle-search {
+    display: block;
+    padding: 0.5rem 1rem;
+    font-size: x-large;
+    color: white;
+    border: none;
+    background-color: transparent;
+  }
+
   .logo {
     display: none;
+  }
+
+  .logo-mobile {
+    display: block;
+  }
+
+  .search-container {
+    display: none;
+    padding: 0;
+  }
+
+  .search-show .search-container{
+    display: flex;
+  }
+
+  .header.search-show {
+    justify-content: space-evenly;
+  }
+
+  .header.search-show .logo-mobile {
+    display: none;
+  }
+
+  .search-show .toggle-search {
+    display: none;
+  }
+
+  .search-show #btn-hamburguer {
+    display: none;
+  }
+
+  .search-show .cancel-toggle-search {
+    display: block;
   }
 
 }

@@ -87,6 +87,7 @@ function characterItem({ image_url, name, anime, manga }) {
   const mainDiv = document.createElement('div');
   const divImg = document.createElement('div');
   const textDiv = document.createElement('div');
+  textDiv.classList.add('div-person');
   mainDiv.classList.add('searched-div');
 
   const nameText = document.createElement('p');
@@ -95,12 +96,11 @@ function characterItem({ image_url, name, anime, manga }) {
   `<a href='${el.url}'><p class='animes-list-character'> ${el.name}</p></a>`);
   const listOfManga = manga.map((el) => 
   `<a href='${el.url}'><p class='manga-list-character'> ${el.name}</p></a>`);
-  nameText.innerHTML = `<p>Nome: ${name}</p>\n <p class='animes-p-tag'>Animes:</p> ${listOfAnimes}
+  nameText.innerHTML = `<p class="name-person">Nome: ${name}</p>\n
+  <p class='animes-p-tag'>Animes:</p> ${listOfAnimes}
   <br> <p class='mangas-p-tag'>Mangas:</p> ${listOfManga}`;
-  // Faz o append child dos elementos nas divs:
   divImg.appendChild(createStreamingElement('image__character', image_url));
   textDiv.appendChild(nameText);
-  // Faz o append das divs na div principal (mainDiv):
   mainDiv.appendChild(divImg);
   mainDiv.appendChild(textDiv);
   main.appendChild(mainDiv);

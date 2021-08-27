@@ -1,6 +1,7 @@
 const buttonMenu = document.querySelector('#btn-hamburguer');
 const searchDropdownButton = document.querySelector('.select-dropdown');
 const dropdownItems = document.querySelectorAll('.dropdown-item');
+const toggleSearchButton = document.querySelector('.toggle-search');
 const logo = document.querySelector('.logo');
 
 const selectDropdown = (event) => {

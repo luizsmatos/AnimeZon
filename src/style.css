@@ -58,6 +58,10 @@ body {
   margin-top: 10px;
 }
 
+.logo-mobile {
+  display: none;
+}
+
 .header-container {
   display: flex;
   align-items: center;
@@ -157,6 +161,10 @@ body {
   z-index: 90;
   transition: 0.5s;
   overflow: auto;
+}
+
+.toggle-search {
+  display: none;
 }
 
 .header-container.active .aside-menu {
@@ -390,9 +398,26 @@ body {
 }
 
 @media screen and (max-width: 600px) {
+  
+  .search-container {
+    display: none;
+  }
+
+  .toggle-search {
+    display: block;
+    padding: 0.5rem 1rem;
+    font-size: x-large;
+    color: white;
+    border: none;
+    background-color: transparent;
+  }
 
   .logo {
     display: none;
+  }
+
+  .logo-mobile {
+    display: block;
   }
 
 }

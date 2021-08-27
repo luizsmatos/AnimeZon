@@ -401,6 +401,11 @@ body {
 
   .cancel-toggle-search {
     display: none;
+    border: none;
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    font-size: x-large;
+    color: white;
   }
 
   .toggle-search {
@@ -422,10 +427,15 @@ body {
 
   .search-container {
     display: none;
+    padding: 0;
   }
 
   .search-show .search-container{
     display: flex;
+  }
+
+  .header.search-show {
+    justify-content: space-evenly;
   }
 
   .header.search-show .logo-mobile {

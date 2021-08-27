@@ -134,7 +134,6 @@ function validatedMangaOrAnime(episodes, textDiv, volumes) {
   .appendChild(createCustomElement('p', 'item__episode', createEpisodesText(episodes)));
 }
 
-// Função para criar os cards, caso seja selecionado, no dropdown, qualquer outra opção diferente de 'Personagens':
 function searchedItems({ title, image_url, synopsis, score, start_date, episodes, volumes, url }) {
   const main = document.querySelector('main');
   const mainDiv = document.createElement('div');
@@ -156,7 +155,7 @@ function searchedItems({ title, image_url, synopsis, score, start_date, episodes
   main.appendChild(mainDiv);
 }
 
-const messageError = (error) => console.log(error.message);
+const messageError = (error) => alert(error.message);
 
 async function getSearchAnimeOrManga(type, name) {
   const url = `https://api.jikan.moe/v3/search/${type}?q=${name}&page=1`;
@@ -205,19 +204,12 @@ buttonLeft[1].onclick = () => {
   mangaContent.scrollLeft -= 500;
 };
 
-// Event listener do botão de pesquisa:
 buttonSearch.addEventListener('click', () => {
   const main = document.querySelector('main');
-  // Deixa a main vazia:
   main.innerHTML = '';
   main.style.marginTop = '75px';
-  /* 
-  Pega o valor do input e chama a função que irá fazer os cards. Neste caso pega pelo 'selectedDropDown' aquele valor que está selecionado na lista do dropdown e já passa o seu Id.Se o elemento selecionado tiver um id = 'characters', chamará a função getCharacters(), caso contrário chamará a função getNameAnimeOrManga():
-  */
   const inputValue = inputSearch.value;
   const selectedDropDown = document.querySelector('.active-item').id;
-  console.log(inputValue);
-  console.log(selectedDropDown);
   if (selectedDropDown === 'character') getSearchAnimeOrManga('character', inputValue);
   
   getSearchAnimeOrManga(selectedDropDown, inputValue);
@@ -230,14 +222,6 @@ window.onload = () => {
   getAnimeOrMangaTop('anime', 'upcoming', topUpcoming);
   getAnimeOrMangaTop('anime', 'bypopularity', topMost);
 };
-
-// ENDPOINTS:
-// top 50 anime = 'https://api.jikan.moe/v3/top/anime/1/favorite'
-// top 50 manga = 'https://api.jikan.moe/v3/top/manga/1/favorite'
-// top airing = https://api.jikan.moe/v3/top/anime/1/airing
-// top upcoming = https://api.jikan.moe/v3/top/anime/1/upcoming
-// top most = https://api.jikan.moe/v3/top/anime/1/bypopularity
-// search = https://api.jikan.moe/v3/search/{type = anime ou manga}?q=${nome}&page=1'
 
 module.exports = { 
   getInfosApis,

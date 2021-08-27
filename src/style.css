@@ -167,6 +167,14 @@ body {
   display: none;
 }
 
+.sign-up-desktop{
+  color: var(--primary-white-font);
+}
+
+.sign-up-desktop:hover {
+  background-color: var(--primary-purple);
+}
+
 .header-container.active .aside-menu {
   visibility: visible;
   width: 35%;

@@ -200,7 +200,7 @@ body {
 }
 
 .container-anime {
-  padding: 20px 0;
+  padding: 10px 0;
 }
 
 .title-contents {
@@ -213,7 +213,6 @@ body {
   display: flex;
   flex-flow: column nowrap;
   gap: 3rem;
-  padding: 2rem 0; 
 }
 
 .anime-content, .manga-content {
@@ -351,9 +350,10 @@ body {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.637);
 }
 
-.main .image__search {
+.main .image__search, .image__character {
   width: 160px;
   border-radius: 3px 0 0 3px;
+  border: 2px solid var(--primary-purple);
 }
 
 .main .font-weight {
@@ -363,6 +363,30 @@ body {
 .main .text-infos {
   flex-grow: 1;
   padding: 10px 10px 0 10px;
+}
+
+.name-person {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.animes-p-tag {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: -5px;
+}
+
+.mangas-p-tag {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-top: 10px;
+  margin-bottom: -5px;
+}
+
+.main .div-person {
+  padding: 10px;
+  display: flex;
+  flex-grow: 1;
 }
 
 @media screen and (max-width: 800px) {

@@ -112,7 +112,6 @@ function createTextScore(score) {
 
 function createStartDateText(start_date) {
   const data = (start_date === null) ? 'N/A' : start_date.split('T')[0];
-  console.log(data);
   return `Data de Lançamento: ${data}`;
 }
 

@@ -189,7 +189,6 @@ body {
 }
 
 .carousel-caption {
-  border: 1px solid red;
   font-size: 1.3em;
   text-shadow: 1.5px 1.5px 2px rgba(0, 0, 0);
 }

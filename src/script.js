@@ -10,20 +10,6 @@ const inputSearch = document.querySelector('.input-search');
 const buttonRight = document.querySelectorAll('.right-button');
 const buttonLeft = document.querySelectorAll('.left-button');
 
-buttonRight[0].onclick = () => {
-  animeContent.scrollLeft += 500;
-};
-buttonLeft[0].onclick = () => {
-  animeContent.scrollLeft -= 500;
-};
-
-buttonRight[1].onclick = () => {
-  mangaContent.scrollLeft += 500;
-};
-buttonLeft[1].onclick = () => {
-  mangaContent.scrollLeft -= 500;
-};
-
 function createStreamingElement(className, product) {
   const image = document.createElement('img');
   image.classList = className;
@@ -205,6 +191,19 @@ async function getAnimeOrMangaTop(type, subtype, top) {
     messageError(error);
   }
 }
+
+buttonRight[0].onclick = () => {
+  animeContent.scrollLeft += 500;
+};
+buttonLeft[0].onclick = () => {
+  animeContent.scrollLeft -= 500;
+};
+buttonRight[1].onclick = () => {
+  mangaContent.scrollLeft += 500;
+};
+buttonLeft[1].onclick = () => {
+  mangaContent.scrollLeft -= 500;
+};
 
 // Event listener do botão de pesquisa:
 buttonSearch.addEventListener('click', () => {

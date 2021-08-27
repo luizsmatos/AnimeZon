@@ -12,7 +12,6 @@ const selectDropdown = (event) => {
     element.classList.remove('active-item');
   });
   const clicked = event.target;
-  console.log(clicked);
   clicked.classList.add('active-item');
   searchDropdownButton.innerText = clicked.innerText;
 };

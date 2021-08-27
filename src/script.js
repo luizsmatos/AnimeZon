@@ -82,15 +82,13 @@ function getInfosTops(object, top) {
   });
 }
 
-// Função para criar a lista de cards, caso seja selecionado 'Personagem' no dropdown:
 function characterItem({ image_url, name, anime, manga }) {
   const main = document.querySelector('main');
-  // Cria as divs para colocar como filhos da main:
   const mainDiv = document.createElement('div');
   const divImg = document.createElement('div');
   const textDiv = document.createElement('div');
   mainDiv.classList.add('searched-div');
-  // Cria os elementos para colocar como filhos das divs acima:
+
   const nameText = document.createElement('p');
   nameText.className = 'name__character';
   const listOfAnimes = anime.map((el) => 
@@ -113,7 +111,9 @@ function createTextScore(score) {
 }
 
 function createStartDateText(start_date) {
-  return `Data de Lançamento: ${start_date.split('T')[0]}`;
+  const data = (start_date === null) ? 'N/A' : start_date.split('T')[0];
+  console.log(data);
+  return `Data de Lançamento: ${data}`;
 }
 
 function createEpisodesText(episodes) {

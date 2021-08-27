@@ -172,6 +172,10 @@ body {
   width: 35%;
 }
 
+.cancel-toggle-search {
+  display: none;
+}
+
 .main-carousel {
   margin-top: 65px;
   margin-bottom: 10px;

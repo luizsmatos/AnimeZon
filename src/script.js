@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 /* eslint-disable camelcase */
 const animeContent = document.querySelector('#carouselAnime');
 const mangaContent = document.querySelector('#carouselManga');
@@ -190,6 +191,22 @@ async function getAnimeOrMangaTop(type, subtype, top) {
   }
 }
 
+function searchValueFunction() {
+  const main = document.querySelector('main');
+  main.innerHTML = '';
+  main.style.marginTop = '75px';
+  const inputValue = inputSearch.value;
+  const selectedDropDown = document.querySelector('.active-item').id;
+  if (selectedDropDown === 'character') getSearchAnimeOrManga('character', inputValue);
+  
+  getSearchAnimeOrManga(selectedDropDown, inputValue);
+}
+
+function searchValueEvent(event) {
+  if (event.key === 'Enter') searchValueFunction();
+  if (event.type === 'click') searchValueFunction();
+}
+
 buttonRight[0].onclick = () => {
   animeContent.scrollLeft += 500;
 };
@@ -203,16 +220,8 @@ buttonLeft[1].onclick = () => {
   mangaContent.scrollLeft -= 500;
 };
 
-buttonSearch.addEventListener('click', () => {
-  const main = document.querySelector('main');
-  main.innerHTML = '';
-  main.style.marginTop = '75px';
-  const inputValue = inputSearch.value;
-  const selectedDropDown = document.querySelector('.active-item').id;
-  if (selectedDropDown === 'character') getSearchAnimeOrManga('character', inputValue);
-  
-  getSearchAnimeOrManga(selectedDropDown, inputValue);
-});
+buttonSearch.addEventListener('click', searchValueEvent);
+inputSearch.addEventListener('keypress', searchValueEvent);
 
 window.onload = () => {
   getAnimeOrMangaTop('anime', 'favorite');

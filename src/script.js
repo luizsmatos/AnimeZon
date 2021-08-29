@@ -94,12 +94,14 @@ function characterItem({ image_url, name, anime, manga }) {
   const nameText = document.createElement('p');
   nameText.className = 'name__character';
   const listOfAnimes = anime.map((el) => 
-  `<a href='${el.url}'><p class='animes-list-character'> ${el.name}</p></a>`);
+  `<a href='${el.url}'><p class='list-character'> ${el.name}</p></a>`);
   const listOfManga = manga.map((el) => 
-  `<a href='${el.url}'><p class='manga-list-character'> ${el.name}</p></a>`);
+  `<a href='${el.url}'><p class='list-character'> ${el.name}</p></a>`);
   nameText.innerHTML = `<p class="name-person">Nome: ${name}</p>\n
-  <p class='animes-p-tag'>Animes:</p> ${listOfAnimes}
-  <br> <p class='mangas-p-tag'>Mangas:</p> ${listOfManga}`;
+  <p class='animes-p-tag'>Animes:</p>
+  <div class='list-container'> ${listOfAnimes} </div>
+  <br> <p class='mangas-p-tag'>Mangas:</p> 
+  <div class='list-container'> ${listOfManga} </div>`;
   divImg.appendChild(createStreamingElement('image__character', image_url));
   textDiv.appendChild(nameText);
   mainDiv.appendChild(divImg);
@@ -155,7 +157,7 @@ function searchedItems({ title, image_url, synopsis, score, start_date, episodes
   main.appendChild(mainDiv);
 }
 
-const messageError = (error) => alert(error.message);
+const messageError = (error) => console.log(error.message);
 
 async function getSearchAnimeOrManga(type, name) {
   const url = `https://api.jikan.moe/v3/search/${type}?q=${name}&page=1`;

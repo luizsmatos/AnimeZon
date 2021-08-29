@@ -323,8 +323,8 @@ body {
 
 .footer {
   background: rgb(32, 32, 36);
+  margin-top: 4rem;
   padding: 10px;
-  border-top: 1px solid var(--primary-white-font);
   font-size: 0.9em;
   text-align: center;
 }

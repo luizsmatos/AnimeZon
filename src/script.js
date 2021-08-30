@@ -18,19 +18,20 @@ function createStreamingElement(className, product) {
   return image;
 }
 
-function getInfosApis(object, type) {
-  const infos = object.top.map((element) => element.image_url);
-    if (type === 'anime') {
-      return infos.forEach((product) => {
-        animeContent.appendChild(createStreamingElement('item', product));
-      });
-    }
+function getImagesFromApi(array, variable) {
+  return array.forEach((product) => {
+    const linkContent = document.createElement('a');
+    linkContent.setAttribute('href', product[1]);
+    linkContent.setAttribute('target', '_blank');
+    linkContent.appendChild(createStreamingElement('item', product[0]));
+    variable.appendChild(linkContent);
+  });
+}
 
-    if (type === 'manga') {
-      return infos.forEach((product) => {
-        mangaContent.appendChild(createStreamingElement('item', product));
-      });
-    }
+function getInfosApis(object, type) {
+  const infos = object.top.map((element) => [element.image_url, element.url]);
+  if (type === 'anime') getImagesFromApi(infos, animeContent);
+  if (type === 'manga') getImagesFromApi(infos, mangaContent);
 }
 
 function createCustomElement(element, className, innerText, url) {

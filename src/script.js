@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 /* eslint-disable camelcase */
 const animeContent = document.querySelector('#carouselAnime');
 const mangaContent = document.querySelector('#carouselManga');
@@ -17,19 +18,20 @@ function createStreamingElement(className, product) {
   return image;
 }
 
-function getInfosApis(object, type) {
-  const infos = object.top.map((element) => element.image_url);
-    if (type === 'anime') {
-      return infos.forEach((product) => {
-        animeContent.appendChild(createStreamingElement('item', product));
-      });
-    }
+function getImagesFromApi(array, variable) {
+  return array.forEach((product) => {
+    const linkContent = document.createElement('a');
+    linkContent.setAttribute('href', product[1]);
+    linkContent.setAttribute('target', '_blank');
+    linkContent.appendChild(createStreamingElement('item', product[0]));
+    variable.appendChild(linkContent);
+  });
+}
 
-    if (type === 'manga') {
-      return infos.forEach((product) => {
-        mangaContent.appendChild(createStreamingElement('item', product));
-      });
-    }
+function getInfosApis(object, type) {
+  const infos = object.top.map((element) => [element.image_url, element.url]);
+  if (type === 'anime') getImagesFromApi(infos, animeContent);
+  if (type === 'manga') getImagesFromApi(infos, mangaContent);
 }
 
 function createCustomElement(element, className, innerText, url) {
@@ -93,12 +95,14 @@ function characterItem({ image_url, name, anime, manga }) {
   const nameText = document.createElement('p');
   nameText.className = 'name__character';
   const listOfAnimes = anime.map((el) => 
-  `<a href='${el.url}'><p class='animes-list-character'> ${el.name}</p></a>`);
+  `<a href='${el.url}'><p class='list-character'> ${el.name}</p></a>`);
   const listOfManga = manga.map((el) => 
-  `<a href='${el.url}'><p class='manga-list-character'> ${el.name}</p></a>`);
+  `<a href='${el.url}'><p class='list-character'> ${el.name}</p></a>`);
   nameText.innerHTML = `<p class="name-person">Nome: ${name}</p>\n
-  <p class='animes-p-tag'>Animes:</p> ${listOfAnimes}
-  <br> <p class='mangas-p-tag'>Mangas:</p> ${listOfManga}`;
+  <p class='animes-p-tag'>Animes:</p>
+  <div class='list-container'> ${listOfAnimes} </div>
+  <br> <p class='mangas-p-tag'>Mangas:</p> 
+  <div class='list-container'> ${listOfManga} </div>`;
   divImg.appendChild(createStreamingElement('image__character', image_url));
   textDiv.appendChild(nameText);
   mainDiv.appendChild(divImg);
@@ -154,7 +158,7 @@ function searchedItems({ title, image_url, synopsis, score, start_date, episodes
   main.appendChild(mainDiv);
 }
 
-const messageError = (error) => alert(error.message);
+const messageError = (error) => console.log(error.message);
 
 async function getSearchAnimeOrManga(type, name) {
   const url = `https://api.jikan.moe/v3/search/${type}?q=${name}&page=1`;
@@ -190,6 +194,22 @@ async function getAnimeOrMangaTop(type, subtype, top) {
   }
 }
 
+function searchValueFunction() {
+  const main = document.querySelector('main');
+  main.innerHTML = '';
+  main.style.marginTop = '75px';
+  const inputValue = inputSearch.value;
+  const selectedDropDown = document.querySelector('.active-item').id;
+  if (selectedDropDown === 'character') getSearchAnimeOrManga('character', inputValue);
+  
+  getSearchAnimeOrManga(selectedDropDown, inputValue);
+}
+
+function searchValueEvent(event) {
+  if (event.key === 'Enter') searchValueFunction();
+  if (event.type === 'click') searchValueFunction();
+}
+
 buttonRight[0].onclick = () => {
   animeContent.scrollLeft += 500;
 };
@@ -203,16 +223,8 @@ buttonLeft[1].onclick = () => {
   mangaContent.scrollLeft -= 500;
 };
 
-buttonSearch.addEventListener('click', () => {
-  const main = document.querySelector('main');
-  main.innerHTML = '';
-  main.style.marginTop = '75px';
-  const inputValue = inputSearch.value;
-  const selectedDropDown = document.querySelector('.active-item').id;
-  if (selectedDropDown === 'character') getSearchAnimeOrManga('character', inputValue);
-  
-  getSearchAnimeOrManga(selectedDropDown, inputValue);
-});
+buttonSearch.addEventListener('click', searchValueEvent);
+inputSearch.addEventListener('keypress', searchValueEvent);
 
 window.onload = () => {
   getAnimeOrMangaTop('anime', 'favorite');

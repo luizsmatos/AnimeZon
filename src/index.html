@@ -18,7 +18,6 @@
     <title>AnimeZon</title>
   </head>
   <body>
-    <!-- CABEÇALHO -->
     <header class="header">
       <section class="header-container">
         <button id="btn-hamburguer">
@@ -74,7 +73,6 @@
       </section>
       <img src="/images/az.png" class="logo-mobile" alt="logo" width="200px" />
       <section class="header-container">
-        <!-- PESQUISA DE PERSONAGEM/MANGÁ -->
         <div class="input-group search-container">
           <button
             class="btn btn-outline-secondary dropdown-toggle select-dropdown"
@@ -99,21 +97,15 @@
         </div>
         <button class="toggle-search"><i class="fas fa-search"></i></button>
         <button class="cancel-toggle-search"><i class="fas fa-times"></i></button>
-        <!-- //PESQUISA DE PERSONAGEM/MANGÁ -->
         <a
-          href="tela_login.html"
           class="sign-up-desktop btn"
-          target="_self"
-          rel="next"
+          data-bs-toggle="modal"
+          href="#exampleModalToggle"
           >Entrar</a
         >
       </section>
     </header>
-    <!-- //CABEÇALHO -->
-
-    <!-- CONTEÚDO PRINCIPAL -->
     <main class="main">
-      <!-- CAROUSEL PRINCIPAL -->
       <section class="main-carousel">
         <div
           id="carouselExampleCaptions"
@@ -142,41 +134,7 @@
               aria-label="Slide 3"
             ></button>
           </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img
-                src="../images/naruto-shippuden.jpg"
-                class="d-block img-carousel"
-                alt="..."
-              />
-              <div class="carousel-caption d-none d-md-block">
-                <h3>Naruto Shippuden</h3>
-                <p>Dia 5 de setembro estreia temporada 17</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img
-                src="../images/shingeki.jpg"
-                class="d-block img-carousel"
-                alt="..."
-              />
-              <div class="carousel-caption d-none d-md-block">
-                <h3>Attack On Titan</h3>
-                <p>Dia 3 de Janeiro</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img
-                src="../images/one-piece-wall.jpg"
-                class="d-block img-carousel"
-                alt="..."
-              />
-              <div class="carousel-caption d-none d-md-block">
-                <h3>One-Piece</h3>
-                <p>Temporada 546 chega dia 7 de março!</p>
-              </div>
-            </div>
-          </div>
+          <div class="carousel-inner"></div>
           <button
             class="carousel-control-prev"
             type="button"
@@ -197,12 +155,8 @@
           </button>
         </div>
       </section>
-      <!-- //CAROUSEL PRINCIPAL -->
-
-      <!-- CONTEÚDO DE ANIME E MANGÁ -->
       <section class="main-content">
         <section class="content">
-          <!-- CONTAINER DE ANIME -->
           <div class="container-anime">
             <h3 class="title-contents">Anime</h3>
             <div class="anime-content">
@@ -215,8 +169,6 @@
               </button>
             </div>
           </div>
-          <!-- //CONTAINER DE ANIME -->
-          <!-- CONTAINER DE MANGÁ -->
           <div class="container-manga">
             <h3 class="title-contents">Manga</h3>
             <div class="manga-content">
@@ -229,11 +181,8 @@
               </button>
             </div>
           </div>
-          <!-- //CONTAINER DE MANGÁ -->
         </section>
       </section>
-      <!-- //CONTEÚDO DE ANIME E MANGÁ -->
-
       <!-- NOTÍCIAS -->
       <section class="news-content">
         <div class="news">
@@ -258,15 +207,43 @@
           <ul class="ul-list" id="top-most"></ul>
         </div>
       </section>
-      <!-- //NOTÍCIAS -->
     </main>
-    <!-- //CONTEÚDO PRINCIPAL -->
-
     <footer class="footer">
       <p class="footer-text">
         Desenvolvido e constantemente mantido pela equipe AnimeZon
       </p>
     </footer>
+
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <section class="form-sign-in">
+            <a href="index.html">
+              <img class= "img-login"src="/images/AnimeZonLOGO.png" alt="Logo-AnimeZon" width="90%">
+            </a>
+            <input type="email" name="email" placeholder="E-mail"
+              class="input-login" />
+            <input type="text" name="password" id="password"
+              placeholder="Senha" class="input-login" />
+            <p class="forgot-password">Esqueci minha senha</p>
+            <section class="login-register">
+              <button class="btn-login">entrar</button>
+              <p class="not-account">
+                Não tem uma conta?
+                <a href="#" class="register">Registre-se</a>
+              </p>
+            </section>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        </div>
+      </div>
+    </div>
+    <!-- <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a> -->
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script

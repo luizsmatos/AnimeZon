@@ -302,27 +302,31 @@ body {
   margin-left: 10px;
 }
 
+.item__title {
+  color: var(--primary-purple);
+  font-weight: 900;
+  transition: 0.5s;
+}
+
+.item__title:hover {
+  color: violet;
+}
+
 .infos  {
   font-size: 12px;
   font-style: italic;
 }
 
-.animes-list-character {
+.list-character {
   display: inline;
-  color: black;
+  color: var(--primary-purple);
+  font-weight: 900;
+  transition: 0.5s;
 }
 
-.animes-list-character:hover {
-  color: rgb(115, 66, 228);
-}
-
-.manga-list-character {
-  display: inline;
-  color: black;
-}
-
-.manga-list-character:hover {
-  color: rgb(115, 66, 228);
+.list-character:hover {
+  color: rgb(255, 0, 255);
+  font-size: medium;
 }
 
 .anime-card-title {
@@ -335,8 +339,8 @@ body {
 
 .footer {
   background: rgb(32, 32, 36);
+  margin-top: 4rem;
   padding: 10px;
-  border-top: 1px solid var(--primary-white-font);
   font-size: 0.9em;
   text-align: center;
 }
@@ -346,29 +350,30 @@ body {
 }
 
 /* SEARCHED ANIME-MANGA */
-.main .searched-div {
+.searched-div {
   display: flex;
   width: 92%;
   flex-flow: row;
   height: fit-content;
+  align-items: center;
   background: rgb(32, 32, 36);
   font-size: 0.9em;
-  margin: 20px;
+  margin: 20px auto;
   border-radius: 3px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.637);
 }
 
-.main .image__search, .image__character {
+.image__search, .image__character {
   width: 160px;
   border-radius: 3px 0 0 3px;
   border: 2px solid var(--primary-purple);
 }
 
-.main .font-weight {
+.font-weight {
   font-weight: bold;
 }
 
-.main .text-infos {
+.text-infos {
   flex-grow: 1;
   padding: 10px 10px 0 10px;
 }
@@ -391,11 +396,12 @@ body {
   margin-bottom: -5px;
 }
 
-.main .div-person {
+.div-person {
   padding: 10px;
   display: flex;
   flex-grow: 1;
 }
+
 
 @media screen and (max-width: 800px) {
 
@@ -442,6 +448,95 @@ body {
   .search-container {
     padding: 30px;
   }
+}
+
+/* TELA DE LOGIN  */
+.form-sign-in {
+  width: 100%;
+  height: 90vh;
+  background: rgb(32, 32, 36);
+  padding: 64px;
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.801);
+  display: flex;
+  flex-flow: column;
+}
+
+.form-sign-in a  {
+  display: flex;
+  justify-content: center;
+}
+
+.input-login {
+  height: 50px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  color: rgb(228, 228, 231);
+  font-size: 0.98em;
+  outline: 0;
+  background: var(--primary-black);
+  border-radius: 5px;
+  border: 2.5px solid var(--primary-black);
+  transition: all 0.2s ease-out;
+}
+
+.input-login:focus {
+  border: 2.5px solid var(--primary-purple);
+}
+
+.forgot-password {
+  font-size: 0.9em;
+  color: var(--primary-purple);
+  font-weight: 800;
+  margin-top: -5px;
+  margin-bottom: 25px;
+  transition: all 0.2s ease-out;
+  line-height: 1.5em;
+  letter-spacing: -0.3px;
+}
+
+.forgot-password:hover {
+  color: rgb(143, 107, 228);
+  cursor: pointer;
+}
+
+.btn-login {
+  width: 100%;
+  height: 50px;
+  font-size: 1em;
+  font-weight: 900;
+  margin-bottom: 30px;
+  background: var(--primary-purple);
+  color: var(--primary-white-font);
+  letter-spacing: -0.8px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+}
+
+.btn-login:hover {
+  background: rgb(126, 81, 231);
+  cursor: pointer;
+}
+
+/* ENTRAR - REGISTRAR-SE */
+.login-register {
+  text-align: center;
+}
+
+.login-register .not-account {
+  font-size: 0.9em;
+}
+
+.login-register .not-account a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--primary-purple);
+}
+
+.login-register .not-account a:hover {
+  color: rgb(126, 81, 231);
+  cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {

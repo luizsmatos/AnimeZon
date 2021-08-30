@@ -98,10 +98,9 @@
         <button class="toggle-search"><i class="fas fa-search"></i></button>
         <button class="cancel-toggle-search"><i class="fas fa-times"></i></button>
         <a
-          href="tela_login.html"
           class="sign-up-desktop btn"
-          target="_self"
-          rel="next"
+          data-bs-toggle="modal"
+          href="#exampleModalToggle"
           >Entrar</a
         >
       </section>
@@ -214,6 +213,37 @@
         Desenvolvido e constantemente mantido pela equipe AnimeZon
       </p>
     </footer>
+
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <section class="form-sign-in">
+            <a href="index.html">
+              <img class= "img-login"src="/images/AnimeZonLOGO.png" alt="Logo-AnimeZon" width="90%">
+            </a>
+            <input type="email" name="email" placeholder="E-mail"
+              class="input-login" />
+            <input type="text" name="password" id="password"
+              placeholder="Senha" class="input-login" />
+            <p class="forgot-password">Esqueci minha senha</p>
+            <section class="login-register">
+              <button class="btn-login">entrar</button>
+              <p class="not-account">
+                Não tem uma conta?
+                <a href="#" class="register">Registre-se</a>
+              </p>
+            </section>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        </div>
+      </div>
+    </div>
+    <!-- <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a> -->
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script
